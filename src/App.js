@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import fetchRecipes from './actions/recipeActions'
 import RecipesContainer from './containers/recipesContainer'
-import { Navbar, Nav } from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
 //import Card from 'react-bootstrap/Card'
 
@@ -17,9 +17,14 @@ class App extends Component {
     console.log("props.recipes inside App render: ", this.props.recipes)
     return (
       <div className="App">
-        <Navbar bg="dark">
+        <Navbar bg="light">
           <Nav className="mr-auto">
-            <Nav.Link href="#">Home</Nav.Link>
+            <Nav.Link href="#">Log In</Nav.Link>
+            <Nav.Link href="#">Log Out</Nav.Link>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#">First Category</NavDropdown.Item>
+              <NavDropdown.Item href="#">Second Category</NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar>
         <RecipesContainer recipes={this.props.recipes} />
