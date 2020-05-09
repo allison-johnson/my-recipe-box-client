@@ -10,14 +10,14 @@ class RecipeCard extends Component {
     console.log("props in recipeCard: ", this.props)
     //console.log(Card)
     return (
-      <div class="recipe-card">
+      <div className="recipe-card">
       <Card style={{width: '18rem'}}>
         <div className="container">
           <Card.Img className="recipe-img" variant="top" src={this.props.recipe.img_url} alt={this.props.recipe.name} />
         </div>
         <Card.Body>
-          <Card.Title>{this.props.recipe.name}</Card.Title>
-          <Card.Text>Include recipe notes here...</Card.Text>
+          <Card.Title className="recipe-title">{this.props.recipe.name}</Card.Title>
+          <Card.Text className="recipe-notes">Include recipe notes here...</Card.Text>
         </Card.Body>
       </Card>
       </div>

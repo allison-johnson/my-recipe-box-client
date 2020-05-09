@@ -14,7 +14,10 @@ class RecipesContainer extends Component {
   render() {
     console.log("props in RecipesContainer: ", this.props)
     return (
-      <CardDeck>{this.renderAllCards()}</CardDeck>
+      <React.Fragment>
+        <h1>My Recipe Box</h1>
+        <CardDeck>{this.renderAllCards()}</CardDeck>
+      </React.Fragment>
     )
   }
 }//class 
