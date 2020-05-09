@@ -15,6 +15,13 @@ const recipesReducer = (state = {recipes: [], loading: false}, action) => {
         loading: false
       }
     
+    case 'ADD_RECIPE':
+      return {
+        ...state,
+        recipes: [...state.recipes, action.recipes],
+        loading: false
+      }
+    
     default:
       return state
   }//switch
