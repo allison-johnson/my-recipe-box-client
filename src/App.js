@@ -24,9 +24,10 @@ class App extends Component {
           <Nav className="mr-auto">
             <Nav.Link href="#">Log In</Nav.Link>
             <Nav.Link href="#">Log Out</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#">First Category</NavDropdown.Item>
-              <NavDropdown.Item href="#">Second Category</NavDropdown.Item>
+            <NavDropdown title="Categories" id="basic-nav-dropdown">
+              {this.props.categories.map(category => <NavDropdown.Item href="#">{category.name}</NavDropdown.Item>)}
+              {/* <NavDropdown.Item href="#">First Category</NavDropdown.Item>
+              <NavDropdown.Item href="#">Second Category</NavDropdown.Item> */}
             </NavDropdown>
           </Nav>
         </Navbar>
