@@ -11,6 +11,7 @@ class App extends Component {
   componentDidMount() {
     console.log("props in App after component did mount: ", this.props)
     this.props.fetchRecipes()
+    //this.props.fetchCategories()
   }//componentDidMound
 
   render() {
@@ -36,14 +37,15 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    recipes: state.recipes,
-    loading: state.loading
+    recipes: state.recipesReducer.recipes,
+    loading: state.recipesReducer.loading
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchRecipes: () => dispatch(fetchRecipes())
+    //fetchCategories: () => dispatch(fetchCategories())
   }
 }
 
