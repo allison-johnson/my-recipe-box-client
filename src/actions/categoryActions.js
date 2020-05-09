@@ -1,4 +1,4 @@
-const fetchCategories = () => {
+export const fetchCategories = () => {
     return (dispatch) => {
       dispatch({ type: 'LOADING_CATEGORIES'} )
       fetch('http://localhost:3001/categories').then(response => {
@@ -7,6 +7,12 @@ const fetchCategories = () => {
           dispatch({ type: 'ADD_CATEGORIES', categories: responseJSON })
       })
     }//return
-  }//fetchCategories
+}//fetchCategories
+
+export const changeSelectedCategory = (category_id) => {
+  return (dispatch) => {
+    dispatch({type: 'CHANGE_SELECTED_CATEGORY', category_id: category_id})
+  }//return
+}//changeSelectedCategory
   
-  export default fetchCategories
+  //export default fetchCategories

@@ -1,19 +1,28 @@
 //Include switches for all action types
-const categoriesReducer = (state = {categories: [], loading: false}, action) => {
+const categoriesReducer = (state = {categories: [], loading: false, selectedCategory: 0}, action) => {
     switch(action.type) {
       case 'LOADING_CATEGORIES':
         return {
           ...state,
           categories: [...state.categories],
-          loading: true 
+          loading: true,
+          selectedCategory: state.selectedCategory 
         }
       
       case 'ADD_CATEGORIES':
-        console.log("action inside ADD_CATEGORIES: ", action)
         return {
           ...state,
           categories: action.categories,
-          loading: false
+          loading: false,
+          selectedCategory: state.selectedCategory
+        }
+      
+      case 'CHANGE_SELECTED_CATEGORY':
+        return {
+          ...state,
+          categories: [...state.categories],
+          loading: false,
+          selectedCategory: action.category_id
         }
       
       default:
