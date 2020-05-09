@@ -1,5 +1,8 @@
 body {
   margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +13,47 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+/*
+.App {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.recipe-card {
+  text-align: center;
+  position: relative;
+  padding: 1rem;
+  width: 25rem;
+  height: 25rem;
+  display: inline-grid;
+  margin: 1rem 2rem;
+}
+
+img {
+  justify-self: center;
+  height: 12rem;
+  width: auto;
+  max-width: 100%;
+}
+*/
+
+/*
+.recipe-img {
+  height: 180px;
+  object-fit: contain;
+}*/
+
+/* Use this to fill image to desired width without stretching it */
+.container {
+  width: 100%;
+  height: 170px;
+  display: block;
+  position: relative;
+  overflow: hidden;
 }
