@@ -4,7 +4,7 @@ const fetchCategories = () => {
       fetch('http://localhost:3001/categories').then(response => {
         return response.json()
       }).then(responseJSON => {
-          dispatch({ type: 'ADD_CATEGORIES', recipes: responseJSON })
+          dispatch({ type: 'ADD_CATEGORIES', categories: responseJSON })
       })
     }//return
   }//fetchCategories

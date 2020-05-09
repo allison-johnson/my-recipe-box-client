@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import fetchRecipes from './actions/recipeActions'
+import fetchCategories from './actions/categoryActions'
 import RecipesContainer from './containers/recipesContainer'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
@@ -9,13 +10,14 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 class App extends Component {
 
   componentDidMount() {
-    console.log("props in App after component did mount: ", this.props)
     this.props.fetchRecipes()
-    //this.props.fetchCategories()
-  }//componentDidMound
+    this.props.fetchCategories()
+    console.log("props in App after component did mount: ", this.props)
+  }//componentDidMount
 
   render() {
     console.log("props.recipes inside App render: ", this.props.recipes)
+    console.log("props.categories inside App render: ", this.props.categories)
     return (
       <div className="App">
         <Navbar bg="light">
@@ -38,14 +40,16 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     recipes: state.recipesReducer.recipes,
-    loading: state.recipesReducer.loading
+    recipesLoading: state.recipesReducer.loading,
+    categories: state.categoriesReducer.categories,
+    categoriesLoading: state.categoriesReducer.loading
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
+    fetchCategories: () => dispatch(fetchCategories()),
     fetchRecipes: () => dispatch(fetchRecipes())
-    //fetchCategories: () => dispatch(fetchCategories())
   }
 }
 

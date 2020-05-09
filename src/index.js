@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose, combineReduers } from 'redux'
 import thunk from 'redux-thunk'
 //import recipesReducer from './reducers/recipesReducer.js'
 import reducer from './reducers/index'
@@ -12,7 +12,9 @@ import reducer from './reducers/index'
 // Importing the Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-const store = createStore(reducer, applyMiddleware(thunk))
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
+
 console.log("store: ", store.getState())
 
 ReactDOM.render(

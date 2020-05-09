@@ -12,7 +12,7 @@ class RecipesContainer extends Component {
   }
 
   render() {
-    console.log("props in RecipesContainer: ", this.props)
+    //console.log("props in RecipesContainer: ", this.props)
     return (
       <React.Fragment>
         <h1>My Recipe Box</h1>

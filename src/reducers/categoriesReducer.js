@@ -4,14 +4,15 @@ const categoriesReducer = (state = {categories: [], loading: false}, action) => 
       case 'LOADING_CATEGORIES':
         return {
           ...state,
-          recipes: [...state.recipes],
+          categories: [...state.categories],
           loading: true 
         }
       
       case 'ADD_CATEGORIES':
+        console.log("action inside ADD_CATEGORIES: ", action)
         return {
           ...state,
-          recipes: action.recipes,
+          categories: action.categories,
           loading: false
         }
       

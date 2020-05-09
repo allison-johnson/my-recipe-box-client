@@ -7,7 +7,7 @@ class RecipeCard extends Component {
   }//constructor 
 
   render() {
-    console.log("props in recipeCard: ", this.props)
+    //console.log("props in recipeCard: ", this.props)
     //console.log(Card)
     return (
       <div className="recipe-card">
