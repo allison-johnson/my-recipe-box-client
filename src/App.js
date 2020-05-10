@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import fetchRecipes from './actions/recipeActions'
+import { fetchRecipes, addRecipe } from './actions/recipeActions'
 import { fetchCategories, changeSelectedCategory } from './actions/categoryActions'
 import RecipesContainer from './containers/recipesContainer'
 import RecipeForm from './components/recipeForm'
@@ -34,13 +34,14 @@ class App extends Component {
   //   console.log("Inside handleSubmit")
   // }
 
-  handleClick = (event) => {
-    return(
-      <div>
-        <RecipeForm addRecipe={this.props.addRecipe} />
-      </div>
-    )
-  }
+  // handleClick = (event) => {
+  //   console.log("props when clicked: ", this.props)
+  //   return(
+  //     <div>
+  //       <RecipeForm addRecipe={this.props.addRecipe} />
+  //     </div>
+  //   )
+  // }
 
   render() {
     console.log("this.props.selectedCategory: ", this.props.selectedCategory)
@@ -73,6 +74,9 @@ class App extends Component {
           </Form> */}
 
         </Navbar>
+        <div>
+          <RecipeForm addRecipe={this.props.addRecipe} categories={this.props.categories} />
+        </div>
         <RecipesContainer recipes={this.filterRecipes()} />
       </div>
     )
