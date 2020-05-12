@@ -48,6 +48,11 @@ h1 {
   background-color: white;
 }
 
+.recipe-notes {
+  height: 5rem;
+  overflow: auto;
+}
+
 /* .recipe-card {
   transition: transform 1s;
   transform-style: preserve-3d;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { connect } from 'react-redux'
 import { fetchRecipes, addRecipe } from './actions/recipeActions'
 import { fetchCategories, changeSelectedCategory } from './actions/categoryActions'
@@ -6,6 +7,7 @@ import { fetchNotes } from './actions/noteActions'
 import RecipesContainer from './containers/recipesContainer'
 import RecipeForm from './components/recipeForm'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 // import Button from 'react-bootstrap/Button'
 // import Form from 'react-bootstrap/Form'
 // import Card from 'react-bootstrap/Card'
@@ -30,20 +32,6 @@ class App extends Component {
     }
   }
 
-  // handleSubmit = (event) => {
-  //   event.preventDefault()
-  //   console.log("Inside handleSubmit")
-  // }
-
-  // handleClick = (event) => {
-  //   console.log("props when clicked: ", this.props)
-  //   return(
-  //     <div>
-  //       <RecipeForm addRecipe={this.props.addRecipe} />
-  //     </div>
-  //   )
-  // }
-
   render() {
     console.log("this.props.selectedCategory: ", this.props.selectedCategory)
     return (
@@ -57,27 +45,12 @@ class App extends Component {
               {this.props.categories.map(category => <NavDropdown.Item eventKey={category.id}>{category.name}</NavDropdown.Item>)}
             </NavDropdown>
           </Nav>
-
-          {/* <Form inline>
-            <Button onClick={event => this.handleClick()}>Add Recipe to Box</Button>
-          </Form> */}
-
-          {/* <Form inline onSubmit={event => this.handleSubmit()}>
-            <FormControl type="text" placeholder="Recipe Name" className="mr-sm-2" />
-            <FormControl type="text" placeholder="Recipe URL" className="mr-sm-2" />
-            <FormControl type="text" placeholder="Image URL" className="mr-sm-2" />
-            <Form.Group>
-              <Form.Control as="select">
-                {this.props.categories.map(category => <option>{category.name}</option>)}
-              </Form.Control>
-            </Form.Group>
-            <Button type="submit">Add Recipe to Box</Button>
-          </Form> */}
-
         </Navbar>
+
         <div>
           <RecipeForm addRecipe={this.props.addRecipe} categories={this.props.categories} />
         </div>
+        
         <RecipesContainer recipes={this.filterRecipes()} />
       </div>
     )
