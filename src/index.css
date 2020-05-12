@@ -43,6 +43,11 @@ h1 {
   overflow: hidden;
 }
 
+.add-note {
+  width: auto;
+  background-color: white;
+}
+
 /* .recipe-card {
   transition: transform 1s;
   transform-style: preserve-3d;

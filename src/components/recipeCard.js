@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import NoteForm from './noteForm'
 import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import Popup from 'reactjs-popup'
 
 class RecipeCard extends Component {
   render() {
@@ -15,6 +18,9 @@ class RecipeCard extends Component {
             <ul>{this.props.recipe.notes.map(note => <li>{note.content}</li>)}</ul>
           </Card.Text>
         </Card.Body>
+        <Popup trigger={<Button className="add-note" variant="light">Add Note</Button>} position="right">
+          <div><NoteForm recipe_id={this.props.recipe.id}/></div>
+        </Popup>
       </Card>
       </div>
     )

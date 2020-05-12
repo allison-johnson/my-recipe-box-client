@@ -18,7 +18,15 @@
 [] Add component for notes (rendered by RecipeCard, similar to restaurant lab)
     [x] Load notes
     [] Add a new note
-    [] Maybe notes are on the back of a card?
+    [] Delete a note
+    [] Style notes - scroll bar, or maybe they pop out when you hover?
+    [] Use Font Awesome icon (FontAwesomeIcon) in add note form
+
+[] Delete a recipe (and its notes)
+
+[] User auth
+
+[] Drag and drop into weekly menu!
 
 Questions
 1. How can I make headers bold? font-weight in CSS doesn't appear to do anything.

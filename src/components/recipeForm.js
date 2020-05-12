@@ -46,7 +46,7 @@ export class RecipeForm extends Component {
             {this.props.categories.map(category => <option value={category.id}>{category.name}</option>)}
           </Form.Control>
         </Form.Group>
-        <Button type="submit">Add Recipe to Box</Button>
+        <Button type="submit" variant="outline-success" style={{margin: '10px'}}>Add Recipe to Box</Button>
       </Form> 
     )
   }//render

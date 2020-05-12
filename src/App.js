@@ -57,9 +57,9 @@ class App extends Component {
             </NavDropdown>
           </Nav>
 
-          <Form inline>
+          {/* <Form inline>
             <Button onClick={event => this.handleClick()}>Add Recipe to Box</Button>
-          </Form>
+          </Form> */}
 
           {/* <Form inline onSubmit={event => this.handleSubmit()}>
             <FormControl type="text" placeholder="Recipe Name" className="mr-sm-2" />
