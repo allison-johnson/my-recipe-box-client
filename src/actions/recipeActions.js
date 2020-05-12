@@ -11,7 +11,6 @@ export const fetchRecipes = () => {
 }//fetchRecipes
 
 export const addRecipe = (recipeData) => {
-  console.log("inside addRecipe")
   return (dispatch) => {
     const body = {
       recipe: recipeData 
@@ -26,7 +25,6 @@ export const addRecipe = (recipeData) => {
     }).then(response => {
       return response.json()
     }).then(responseJSON => {
-      console.log("responseJSON: ", responseJSON)
       dispatch({ type: 'ADD_RECIPE', recipe: responseJSON })
       //return responseJSON
     })

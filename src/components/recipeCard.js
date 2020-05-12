@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import NoteForm from './noteForm'
+import { addNote } from '../actions/noteActions'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Popup from 'reactjs-popup'
@@ -18,8 +20,10 @@ class RecipeCard extends Component {
             <ul>{this.props.recipe.notes.map(note => <li>{note.content}</li>)}</ul>
           </Card.Text>
         </Card.Body>
-        <Popup trigger={<Button className="add-note" variant="light">Add Note</Button>} position="right">
-          <div><NoteForm recipe_id={this.props.recipe.id}/></div>
+        <Popup trigger={<Button className="add-note" variant="light">Add Note</Button>} position="right" closeOnDocumentClick>
+          <div>
+            <NoteForm recipe_id={this.props.recipe.id} addNote={this.props.addNote}/>
+          </div>
         </Popup>
       </Card>
       </div>
@@ -27,4 +31,10 @@ class RecipeCard extends Component {
   }//render
 }//class
 
-export default RecipeCard
+const mapDispatchToProps = dispatch => {
+  return {
+    addNote: (formData) => dispatch(addNote(formData))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(RecipeCard)

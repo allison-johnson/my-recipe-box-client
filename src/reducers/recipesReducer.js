@@ -16,7 +16,6 @@ const recipesReducer = (state = {recipes: [], loading: false}, action) => {
       }
     
     case 'ADD_RECIPE':
-      console.log("action inside of ADD_RECIPE: ", action)
       return {
         ...state,
         recipes: [...state.recipes, action.recipe],

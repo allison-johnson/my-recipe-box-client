@@ -17,6 +17,7 @@
 
 [] Add component for notes (rendered by RecipeCard, similar to restaurant lab)
     [x] Load notes
+        [] Incorporate this into the reducer
     [] Add a new note
     [] Delete a note
     [] Style notes - scroll bar, or maybe they pop out when you hover?

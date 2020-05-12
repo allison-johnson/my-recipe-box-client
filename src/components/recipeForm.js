@@ -17,8 +17,6 @@ export class RecipeForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     let newRecipe = {...this.state}
-    console.log("newRecipe: ", newRecipe)
-    console.log("addRecipe: ", this.props.addRecipe)
     this.props.addRecipe(newRecipe)
     this.setState({
       name: '',
@@ -26,13 +24,13 @@ export class RecipeForm extends Component {
       img_url: '',
       category_id: 0
     })
-  }
+  }//handleSubmit
 
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value 
     })
-  }
+  }//handleChange
 
   render() {
     console.log("Inside RecipeForm render")
