@@ -10,20 +10,25 @@ export const fetchRecipes = () => {
   }//return
 }//fetchRecipes
 
-export const addRecipe = (recipe) => {
+export const addRecipe = (recipeData) => {
   console.log("inside addRecipe")
   return (dispatch) => {
+    const body = {
+      recipe: recipeData 
+    }
     return fetch('http://localhost:3001/recipes', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(recipe)
+      body: JSON.stringify(body)
     }).then(response => {
-      response.json()
+      return response.json()
     }).then(responseJSON => {
+      console.log("responseJSON: ", responseJSON)
       dispatch({ type: 'ADD_RECIPE', recipe: responseJSON })
+      //return responseJSON
     })
   }
 }//addRecipe

@@ -1,18 +1,19 @@
 import React, { Component} from 'react'
 import RecipeCard from '../components/recipeCard'
+import RecipeCardBack from '../components/recipeCardBack'
 import CardDeck from 'react-bootstrap/CardDeck'
 
 class RecipesContainer extends Component {
-  constructor(props) {
-    super(props)
-  }//constructor
-
   renderAllCards() {
-    return this.props.recipes.map((recipe, idx) => <RecipeCard key={idx} recipe={recipe} />)
+    return this.props.recipes.map((recipe, idx) => { return(
+      <div className="recipe-card">
+        <RecipeCard key={idx} recipe={recipe} />
+        {/* <RecipeCardBack key={idx} recipe={recipe} /> */}
+      </div> )
+    })
   }
 
   render() {
-    //console.log("props in RecipesContainer: ", this.props)
     return (
       <React.Fragment>
         <h1>My Recipe Box</h1>

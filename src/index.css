@@ -34,41 +34,6 @@ h1 {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-/*
-.App {
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.recipe-card {
-  text-align: center;
-  position: relative;
-  padding: 1rem;
-  width: 25rem;
-  height: 25rem;
-  display: inline-grid;
-  margin: 1rem 2rem;
-}
-
-img {
-  justify-self: center;
-  height: 12rem;
-  width: auto;
-  max-width: 100%;
-}
-*/
-
-/*
-.recipe-img {
-  height: 180px;
-  object-fit: contain;
-}*/
-
 /* Use this to fill image to desired width without stretching it */
 .container {
   width: 100%;
@@ -77,3 +42,38 @@ img {
   position: relative;
   overflow: hidden;
 }
+
+/* .recipe-card {
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.recipe-card:hover {
+  transform: scale(1.05);
+}
+
+.recipe-card:active {
+  transform: rotateY(180deg) scale(1.05);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  height: inherit;
+  width: inherit;
+  backface-visibility: hidden;
+  background-size: cover;
+}
+
+.card-front {
+  transition-duration: 1s;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  display: flex; 
+} */
+
+/*
+.recipe-card-front .recipe-img {
+  opacity: 0.5;
+} */

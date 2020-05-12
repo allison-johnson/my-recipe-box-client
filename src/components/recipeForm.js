@@ -18,13 +18,14 @@ export class RecipeForm extends Component {
     event.preventDefault()
     let newRecipe = {...this.state}
     console.log("newRecipe: ", newRecipe)
+    console.log("addRecipe: ", this.props.addRecipe)
     this.props.addRecipe(newRecipe)
-    // this.setState({
-    //   name: '',
-    //   url: '',
-    //   img_url: '',
-    //   category_id: 0
-    // })
+    this.setState({
+      name: '',
+      url: '',
+      img_url: '',
+      category_id: 0
+    })
   }
 
   handleChange = (event) => {
@@ -36,7 +37,7 @@ export class RecipeForm extends Component {
   render() {
     console.log("Inside RecipeForm render")
     return (
-      <Form onSubmit={event => this.handleSubmit(event)}>
+      <Form inline onSubmit={event => this.handleSubmit(event)}>
         <FormControl type="text" name="name" placeholder="Recipe Name" className="mr-sm-2" onChange={event => this.handleChange(event)} />
         <FormControl type="text" name="url" placeholder="Recipe URL" className="mr-sm-2" onChange={event => this.handleChange(event)} />
         <FormControl type="text" name="img_url" placeholder="Image URL" className="mr-sm-2" onChange={event => this.handleChange(event)} />

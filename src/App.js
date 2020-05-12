@@ -99,10 +99,11 @@ const mapDispatchToProps = dispatch => {
     fetchCategories: () => dispatch(fetchCategories()),
     fetchRecipes: () => dispatch(fetchRecipes()),
     changeSelectedCategory: (category_id) => dispatch(changeSelectedCategory(category_id)),
-    addRecipe: formData => dispatch({
-      type: 'ADD_RECIPE',
-      recipe: formData
-    })
+    addRecipe: (formData) => dispatch(addRecipe(formData))
+    // addRecipe: formData => dispatch({
+    //   type: 'ADD_RECIPE',
+    //   recipe: formData
+    // })
   }
 }
 
