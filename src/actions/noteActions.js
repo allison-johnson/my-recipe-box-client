@@ -1,4 +1,14 @@
-//need to load notes
+export const fetchNotes = () => {
+  return (dispatch) => {
+    dispatch({ type: 'LOADING_NOTES'})
+    fetch('http://localhost:3001/notes').then(response => {
+      return response.json()
+    }).then(responseJSON => {
+      dispatch({ type: 'ADD_NOTES', notes: responseJSON })
+    })
+  }//return 
+}//fetchNotes
+
 export const addNote = (noteData) => {
   return (dispatch) => {
     const body = {
@@ -16,5 +26,5 @@ export const addNote = (noteData) => {
     }).then(responseJSON => {
       dispatch({ type: 'ADD_NOTE', note: responseJSON})
     })
-  }
+  }//return
 }//addNote 

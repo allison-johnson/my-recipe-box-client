@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 import RecipeCard from '../components/recipeCard'
-import RecipeCardBack from '../components/recipeCardBack'
+//import RecipeCardBack from '../components/recipeCardBack'
 import CardDeck from 'react-bootstrap/CardDeck'
 
 class RecipesContainer extends Component {

@@ -23,6 +23,7 @@ class NoteForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     let newNote = {...this.state}
+    console.log("newNote: ", newNote)
     this.props.addNote(newNote)
     this.setState({
       content: ''

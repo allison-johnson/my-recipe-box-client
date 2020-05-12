@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import NoteForm from './noteForm'
+import RecipeNotes from './recipeNotes'
 import { addNote } from '../actions/noteActions'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
@@ -17,7 +18,7 @@ class RecipeCard extends Component {
         <Card.Body className="card-front">
           <Card.Title className="recipe-title">{this.props.recipe.name}</Card.Title>
           <Card.Text className="recipe-notes">
-            <ul>{this.props.recipe.notes.map(note => <li>{note.content}</li>)}</ul>
+            <RecipeNotes notes={this.props.notes.filter(note => note.recipe_id === this.props.recipe.id)} />
           </Card.Text>
         </Card.Body>
         <Popup trigger={<Button className="add-note" variant="light">Add Note</Button>} position="right" closeOnDocumentClick>
@@ -31,10 +32,16 @@ class RecipeCard extends Component {
   }//render
 }//class
 
+const mapStateToProps = state => {
+  return {
+    notes: state.notesReducer.notes
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     addNote: (formData) => dispatch(addNote(formData))
   }
 }
 
-export default connect(null, mapDispatchToProps)(RecipeCard)
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeCard)

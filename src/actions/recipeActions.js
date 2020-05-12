@@ -1,7 +1,7 @@
 //Returns a function that takes in dispatch as a parameter
 export const fetchRecipes = () => {
   return (dispatch) => {
-    dispatch({ type: 'LOADING_RECIPES'} )
+    dispatch({ type: 'LOADING_RECIPES'})
     fetch('http://localhost:3001/recipes').then(response => {
       return response.json()
     }).then(responseJSON => {

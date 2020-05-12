@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchRecipes, addRecipe } from './actions/recipeActions'
 import { fetchCategories, changeSelectedCategory } from './actions/categoryActions'
+import { fetchNotes } from './actions/noteActions'
 import RecipesContainer from './containers/recipesContainer'
 import RecipeForm from './components/recipeForm'
-import { Navbar, Nav, NavDropdown, FormControl } from 'react-bootstrap'
-import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
-//import Card from 'react-bootstrap/Card'
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+// import Button from 'react-bootstrap/Button'
+// import Form from 'react-bootstrap/Form'
+// import Card from 'react-bootstrap/Card'
 
 class App extends Component {
 
   componentDidMount() {
     this.props.fetchRecipes()
     this.props.fetchCategories()
-    //console.log("props in App after component did mount: ", this.props)
+    this.props.fetchNotes()
   }//componentDidMount
 
   handleDropdownChange = (event) => {
@@ -90,7 +91,8 @@ const mapStateToProps = state => {
     recipesLoading: state.recipesReducer.loading,
     categories: state.categoriesReducer.categories,
     categoriesLoading: state.categoriesReducer.loading,
-    selectedCategory: state.categoriesReducer.selectedCategory
+    selectedCategory: state.categoriesReducer.selectedCategory,
+    notes: state.notesReducer.notes
   }
 }
 
@@ -98,6 +100,7 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchCategories: () => dispatch(fetchCategories()),
     fetchRecipes: () => dispatch(fetchRecipes()),
+    fetchNotes: () => dispatch(fetchNotes()),
     changeSelectedCategory: (category_id) => dispatch(changeSelectedCategory(category_id)),
     addRecipe: (formData) => dispatch(addRecipe(formData))
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Navbar, Nav, NavDropdown, FormControl } from 'react-bootstrap'
+import { FormControl } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
@@ -33,7 +33,6 @@ export class RecipeForm extends Component {
   }//handleChange
 
   render() {
-    console.log("Inside RecipeForm render")
     return (
       <Form inline onSubmit={event => this.handleSubmit(event)}>
         <FormControl type="text" name="name" placeholder="Recipe Name" className="mr-sm-2" onChange={event => this.handleChange(event)} />
