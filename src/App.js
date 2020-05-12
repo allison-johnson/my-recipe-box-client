@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux'
 import { fetchRecipes, addRecipe } from './actions/recipeActions'
 import { fetchCategories, changeSelectedCategory } from './actions/categoryActions'
@@ -7,7 +6,6 @@ import { fetchNotes } from './actions/noteActions'
 import RecipesContainer from './containers/recipesContainer'
 import RecipeForm from './components/recipeForm'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
 // import Button from 'react-bootstrap/Button'
 // import Form from 'react-bootstrap/Form'
 // import Card from 'react-bootstrap/Card'
@@ -50,7 +48,7 @@ class App extends Component {
         <div>
           <RecipeForm addRecipe={this.props.addRecipe} categories={this.props.categories} />
         </div>
-        
+
         <RecipesContainer recipes={this.filterRecipes()} />
       </div>
     )
