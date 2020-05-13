@@ -5,7 +5,10 @@ import { fetchCategories, changeSelectedCategory } from './actions/categoryActio
 import { fetchNotes } from './actions/noteActions'
 import RecipesContainer from './containers/recipesContainer'
 import RecipeForm from './components/recipeForm'
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import TopNavBar from './components/topNavBar'
+// import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import RecipesList from './components/recipesList'
 // import Button from 'react-bootstrap/Button'
 // import Form from 'react-bootstrap/Form'
 // import Card from 'react-bootstrap/Card'
@@ -16,13 +19,14 @@ class App extends Component {
     this.props.fetchRecipes()
     this.props.fetchCategories()
     this.props.fetchNotes()
-  }//componentDidMount
+  }//componentDidMount 
 
-  handleDropdownChange = (event) => {
-    this.props.changeSelectedCategory(event)
-  }
+  // handleDropdownChange = (event) => {
+  //   this.props.changeSelectedCategory(event)
+  // }
 
   filterRecipes = () => {
+    //console.log("this.props.recipes inside filterRecipes: ", this.props.recipes)
     if (parseInt(this.props.selectedCategory) === 0) {
       return this.props.recipes
     } else {
@@ -31,26 +35,45 @@ class App extends Component {
   }
 
   render() {
-    console.log("this.props.selectedCategory: ", this.props.selectedCategory)
+    console.log("recipes in render: ", this.props.recipes)
     return (
       <div className="App">
-        <Navbar bg="light">
-          <Nav className="mr-auto">
-            <Nav.Link href="#">Log In</Nav.Link>
-            <Nav.Link href="#">Sign Up</Nav.Link>
-            <NavDropdown title="Categories" id="basic-nav-dropdown" onSelect={event => this.handleDropdownChange(event)}>
-              <NavDropdown.Item eventKey={0}>All</NavDropdown.Item>
-              {this.props.categories.map(category => <NavDropdown.Item eventKey={category.id}>{category.name}</NavDropdown.Item>)}
-            </NavDropdown>
-          </Nav>
-        </Navbar>
 
-        <div>
+        <TopNavBar categories={this.props.categories} changeCategory={this.props.changeSelectedCategory} />
+
+        <div className="recipe-form">
           <RecipeForm addRecipe={this.props.addRecipe} categories={this.props.categories} />
         </div>
 
-        <RecipesContainer recipes={this.filterRecipes()} />
+        <Switch >
+          <Route exact path="/manage-recipes" render={(props) => <RecipesList {...props} recipes={this.props.recipes} />} />
+          <Route exact path="/" render={(props) => <RecipesContainer {...props} recipes={this.filterRecipes()}/>} />
+        </Switch>
+
       </div>
+
+
+
+      // <div className="App">
+        // <Navbar bg="light">
+        //   <Nav className="mr-auto">
+        //     <Nav.Link href="#">Log In</Nav.Link>
+        //     <Nav.Link href="#">Sign Up</Nav.Link>
+        //     <Nav.Link href="/">Home</Nav.Link>
+        //     <Nav.Link href="/manage-recipes">Manage Recipes</Nav.Link>
+        //     <NavDropdown title="Categories" id="basic-nav-dropdown" onSelect={event => this.handleDropdownChange(event)}>
+        //       <NavDropdown.Item eventKey={0}>All</NavDropdown.Item>
+        //       {this.props.categories.map(category => <NavDropdown.Item eventKey={category.id}>{category.name}</NavDropdown.Item>)}
+        //     </NavDropdown>
+        //   </Nav>
+        // </Navbar>
+
+        // <div>
+        //   <RecipeForm addRecipe={this.props.addRecipe} categories={this.props.categories} />
+        // </div>
+
+      //   <RecipesContainer recipes={this.filterRecipes()} />
+      // </div>
     )
   }//render
   

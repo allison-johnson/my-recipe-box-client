@@ -30,3 +30,17 @@ export const addRecipe = (recipeData) => {
     })
   }
 }//addRecipe
+
+export const deleteRecipe = (id) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3001/recipes/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).finally(responseJSON => {
+      dispatch({ type: 'DELETE_RECIPE', id})
+    })
+  }
+}

@@ -6,7 +6,8 @@
 
 [] Turn recipeCard into a "stateless, functional" component?
 
-[] Add React routes
+[] Add React routes (index.js)
+    [] Navbar links should somehow be connected to those routes as well...
 
 [] Add component for notes (rendered by RecipeCard, similar to restaurant lab)
     [x] Load notes

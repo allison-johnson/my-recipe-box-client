@@ -21,7 +21,14 @@ const recipesReducer = (state = {recipes: [], loading: false}, action) => {
         recipes: [...state.recipes, action.recipe],
         loading: false
       }
-    
+
+    case 'DELETE_RECIPE':
+      return {
+        ...state,
+        recipes: state.recipes.filter(recipe => recipe.id !== action.id),
+        loading: false 
+      }
+
     default:
       return state
   }//switch

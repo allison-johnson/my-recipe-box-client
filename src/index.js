@@ -16,13 +16,12 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
 
-console.log("store: ", store.getState())
-
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <Route exact path="/" component={App} />
-      <Route exact path="/manage-recipes" component={RecipesList} />
+      <App />
+      {/* <Route exact path="/home" component={App} />
+      <Route exact path="/manage-recipes" component={RecipesList} /> */}
     </Router>
   </Provider>,
   document.getElementById('root')
