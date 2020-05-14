@@ -10,7 +10,7 @@ import Popup from 'reactjs-popup'
 class RecipeCard extends Component {
   render() {
     return (
-      <div className="recipe-card-front">
+      <div className="recipe-card">
       <Card style={{width: '18rem'}}>
         <div className="container">
           <Card.Img className="recipe-img" variant="top" src={this.props.recipe.img_url} alt={this.props.recipe.name} />

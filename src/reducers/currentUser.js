@@ -1,11 +1,11 @@
-const currentUser = (state = null, action) => {
+const currentUser = (state = {current_user: {}, logged_in: false}, action) => {
   switch (action.type) {
     case 'SET_CURRENT_USER':
-      return action 
+      return action.user 
       //return action.user 
     
     case 'CLEAR_CURRENT_USER':
-      return null
+      return {current_user: {}, logged_in: false}
     
     default:
       return state

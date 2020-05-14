@@ -53,6 +53,10 @@ h1 {
   overflow: auto;
 }
 
+.recipe-card {
+  margin: 5px;
+}
+
 /* .recipe-card {
   transition: transform 1s;
   transform-style: preserve-3d;

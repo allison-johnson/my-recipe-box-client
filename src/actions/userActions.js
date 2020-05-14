@@ -38,3 +38,19 @@ export const setCurrentUser = (user) => {
     user 
   }
 }
+
+export const clearCurrentUser = () => {
+  return {
+    type: 'CLEAR_CURRENT_USER'
+  }
+}
+
+export const logout = (event) => {
+  return dispatch => {
+    dispatch(clearCurrentUser())
+    return fetch('http://localhost:3001/logout', {
+      credentials: 'include',
+      method: 'POST'
+    })
+  }
+}
