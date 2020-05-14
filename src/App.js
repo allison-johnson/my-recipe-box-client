@@ -62,7 +62,7 @@ const mapStateToProps = state => {
     selectedCategory: state.categoriesReducer.selectedCategory,
     notes: state.notesReducer.notes,
     loggedIn: state.currentUser.logged_in,
-    userEmail: state.currentUser.current_user.email
+    userEmail: state.currentUser.logged_in ? state.currentUser.current_user.email : ''
   }
 }
 
