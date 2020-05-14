@@ -3,12 +3,14 @@ import { connect } from 'react-redux'
 import { fetchRecipes, addRecipe } from './actions/recipeActions'
 import { fetchCategories, changeSelectedCategory } from './actions/categoryActions'
 import { fetchNotes } from './actions/noteActions'
+import { login, getCurrentUser } from './actions/userActions'
 import RecipesContainer from './containers/recipesContainer'
 import RecipeForm from './components/recipeForm'
 import TopNavBar from './components/topNavBar'
 // import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import RecipesList from './components/recipesList'
+import Login from './components/login'
 // import Button from 'react-bootstrap/Button'
 // import Form from 'react-bootstrap/Form'
 // import Card from 'react-bootstrap/Card'
@@ -19,6 +21,7 @@ class App extends Component {
     this.props.fetchRecipes()
     this.props.fetchCategories()
     this.props.fetchNotes()
+    this.props.getCurrentUser()
   }//componentDidMount 
 
   // handleDropdownChange = (event) => {
@@ -35,7 +38,7 @@ class App extends Component {
   }
 
   render() {
-    console.log("recipes in render: ", this.props.recipes)
+    console.log("props in App.js render: ", this.props)
     return (
       <div className="App">
 
@@ -48,35 +51,12 @@ class App extends Component {
         <Switch >
           <Route exact path="/manage-recipes" render={(props) => <RecipesList {...props} recipes={this.props.recipes} notes={this.props.notes} />} />
           <Route exact path="/" render={(props) => <RecipesContainer {...props} recipes={this.filterRecipes()}/>} />
+          <Route exact path="/login" render={(props) => <Login {...props} login={this.props.login} />} />
         </Switch>
 
       </div>
-
-
-
-      // <div className="App">
-        // <Navbar bg="light">
-        //   <Nav className="mr-auto">
-        //     <Nav.Link href="#">Log In</Nav.Link>
-        //     <Nav.Link href="#">Sign Up</Nav.Link>
-        //     <Nav.Link href="/">Home</Nav.Link>
-        //     <Nav.Link href="/manage-recipes">Manage Recipes</Nav.Link>
-        //     <NavDropdown title="Categories" id="basic-nav-dropdown" onSelect={event => this.handleDropdownChange(event)}>
-        //       <NavDropdown.Item eventKey={0}>All</NavDropdown.Item>
-        //       {this.props.categories.map(category => <NavDropdown.Item eventKey={category.id}>{category.name}</NavDropdown.Item>)}
-        //     </NavDropdown>
-        //   </Nav>
-        // </Navbar>
-
-        // <div>
-        //   <RecipeForm addRecipe={this.props.addRecipe} categories={this.props.categories} />
-        // </div>
-
-      //   <RecipesContainer recipes={this.filterRecipes()} />
-      // </div>
     )
   }//render
-  
 }//class
 
 const mapStateToProps = state => {
@@ -86,7 +66,8 @@ const mapStateToProps = state => {
     categories: state.categoriesReducer.categories,
     categoriesLoading: state.categoriesReducer.loading,
     selectedCategory: state.categoriesReducer.selectedCategory,
-    notes: state.notesReducer.notes
+    notes: state.notesReducer.notes,
+    //loggedIn: state.currentUser.logged_in 
   }
 }
 
@@ -96,7 +77,9 @@ const mapDispatchToProps = dispatch => {
     fetchRecipes: () => dispatch(fetchRecipes()),
     fetchNotes: () => dispatch(fetchNotes()),
     changeSelectedCategory: (category_id) => dispatch(changeSelectedCategory(category_id)),
-    addRecipe: (formData) => dispatch(addRecipe(formData))
+    addRecipe: (formData) => dispatch(addRecipe(formData)),
+    login: (formData) => dispatch(login(formData)),
+    getCurrentUser: () => dispatch(getCurrentUser())
   }
 }
 

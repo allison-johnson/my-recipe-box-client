@@ -1,4 +1,4 @@
-const notesReducer = (state= {notes: [], loading: false}, action) => {
+const notesReducer = (state = {notes: [], loading: false}, action) => {
   switch(action.type) {
     case 'LOADING_NOTES':
       return {

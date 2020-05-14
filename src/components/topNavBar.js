@@ -11,7 +11,7 @@ class TopNavBar extends Component {
     return (
       <Navbar bg="light">
         <Nav className="mr-auto">
-          <Nav.Link href="#">Log In</Nav.Link>
+          <Nav.Link href="/login">Log In</Nav.Link>
           <Nav.Link href="#">Sign Up</Nav.Link>
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/manage-recipes">Manage Recipes</Nav.Link>
