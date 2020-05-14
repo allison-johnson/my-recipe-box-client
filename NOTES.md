@@ -6,17 +6,12 @@
 
 [] DB: recipe belongs_to :user
     [] only load recipes for current user
-    
-[] New users can sign up
 
 [] New recipe form should only render when button is clicked (?)
 
 [] Turn recipeCard into a "stateless, functional" component?
 
 [] Allow user to enter in recipes without a URL/picture as well?
-
-[x] Add React routes (index.js)
-    [x] Navbar links should somehow be connected to those routes as well...
 
 [] Add component for notes (rendered by RecipeCard, similar to restaurant lab)
     [x] Load notes
@@ -29,8 +24,6 @@
 [x] Delete a recipe
     [] Add confirmation before deleting
     [] Delete notes associated with that recipe
-
-[] User auth
 
 *STRETCH GOALS*
 [] Drag and drop into weekly menu!

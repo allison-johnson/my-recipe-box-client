@@ -8,7 +8,7 @@ import RecipesContainer from './containers/recipesContainer'
 import RecipeForm from './components/recipeForm'
 import TopNavBar from './components/topNavBar'
 import Logout from './components/logout'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, withRouter } from 'react-router-dom'
 import RecipesList from './components/recipesList'
 import Login from './components/login'
 import Signup from './components/signup'
@@ -41,10 +41,10 @@ class App extends Component {
         </div>
 
         <Switch >
-          <Route exact path="/manage-recipes" render={(props) => <RecipesList {...props} recipes={this.props.recipes} notes={this.props.notes} />} />
-          <Route exact path="/" render={(props) => <RecipesContainer {...props} recipes={this.filterRecipes()}/>} />
-          <Route exact path="/login" render={(props) => <Login {...props} login={this.props.login} />} />
-          <Route exact path="/signup" render={(props) => <Signup {...props} signup={this.props.signup} />} />
+          <Route exact path="/manage-recipes" render={(routerProps) => <RecipesList {...routerProps} recipes={this.props.recipes} notes={this.props.notes} />} />
+          <Route exact path="/" render={(routerProps) => <RecipesContainer {...routerProps} recipes={this.filterRecipes()}/>} />
+          <Route exact path="/login" render={(routerProps) => <Login {...routerProps} login={this.props.login} />} />
+          <Route exact path="/signup" render={(routerProps) => <Signup {...routerProps} signup={this.props.signup} />} />
           <Route exact path="/logout" component={Logout} />
         </Switch>
 
@@ -73,7 +73,7 @@ const mapDispatchToProps = dispatch => {
     fetchNotes: () => dispatch(fetchNotes()),
     changeSelectedCategory: (category_id) => dispatch(changeSelectedCategory(category_id)),
     addRecipe: (formData) => dispatch(addRecipe(formData)),
-    login: (formData) => dispatch(login(formData)),
+    login: (formData, history) => dispatch(login(formData, history)),
     getCurrentUser: () => dispatch(getCurrentUser()),
     signup: (formData) => dispatch(signup(formData))
   }

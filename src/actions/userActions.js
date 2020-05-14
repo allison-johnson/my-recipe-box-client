@@ -18,7 +18,8 @@ export const signup = (credentials) => {
   }
 }
 
-export const login = (credentials) => {
+export const login = (credentials, history) => {
+  //console.log("history: ", history) //history not getting passed correctly from login's onSubmit
   return (dispatch) => {
     return fetch('http://localhost:3001/login', {
       method: 'POST',
@@ -33,7 +34,7 @@ export const login = (credentials) => {
     }).then(responseJSON => {
       console.log("responseJSON in login: ", responseJSON)
       dispatch({ type: 'SET_CURRENT_USER', user: responseJSON})
-      //history.push('/') //also add 'history' to parameters, should get passed by login form on submit
+      history.push('/') //also add 'history' to parameters, should get passed by login form on submit
     })
   }
 }

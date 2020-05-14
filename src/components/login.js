@@ -16,10 +16,11 @@ export class Login extends Component {
   }
 
   handleSubmit = (event) => {
+    console.log("this.props.history inside handleSubmit login form: ", this.props.history)
     event.preventDefault()
     let newSession = {...this.state}
-    //this.props.login(newSession, history) //but where does the Login class get 'history' from?
-    this.props.login(newSession)
+    this.props.login(newSession, this.props.history) //but where does the Login class get 'history' from?
+    //this.props.login(newSession)
   }//handleSubmit
 
   handleChange = (event) => {
