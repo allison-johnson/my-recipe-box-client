@@ -35,9 +35,9 @@ export class RecipeForm extends Component {
   render() {
     return (
       <Form inline onSubmit={event => this.handleSubmit(event)}>
-        <FormControl type="text" name="name" placeholder="Recipe Name" className="mr-sm-2" onChange={event => this.handleChange(event)} />
-        <FormControl type="text" name="url" placeholder="Recipe URL" className="mr-sm-2" onChange={event => this.handleChange(event)} />
-        <FormControl type="text" name="img_url" placeholder="Image URL" className="mr-sm-2" onChange={event => this.handleChange(event)} />
+        <FormControl type="text" name="name" placeholder="Recipe Name" value={this.state.name} className="mr-sm-2" onChange={event => this.handleChange(event)} />
+        <FormControl type="text" name="url" placeholder="Recipe URL" value={this.state.url} className="mr-sm-2" onChange={event => this.handleChange(event)} />
+        <FormControl type="text" name="img_url" placeholder="Image URL" value={this.state.img_url} className="mr-sm-2" onChange={event => this.handleChange(event)} />
         <Form.Group>
           <Form.Control as="select" name="category_id" onChange={event => this.handleChange(event)}>
             {this.props.categories.map(category => <option value={category.id}>{category.name}</option>)}

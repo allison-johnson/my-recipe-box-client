@@ -24,7 +24,16 @@ export const addNote = (noteData) => {
     }).then(response => {
       return response.json()
     }).then(responseJSON => {
-      dispatch({ type: 'ADD_NOTE', note: responseJSON})
+      console.log("responseJSON in notes: ", responseJSON)
+      if (responseJSON.errors) {
+        let errorString = "";
+        for (const key in responseJSON.errors) {
+          errorString += `${responseJSON.errors[key]}\n`
+        }
+        alert(errorString)
+      } else{
+        dispatch({ type: 'ADD_NOTE', note: responseJSON})
+      }
     })
   }//return
 }//addNote 

@@ -25,7 +25,15 @@ export const addRecipe = (recipeData) => {
     }).then(response => {
       return response.json()
     }).then(responseJSON => {
-      dispatch({ type: 'ADD_RECIPE', recipe: responseJSON })
+      if (responseJSON.errors) {
+        let errorString = "";
+        for (const key in responseJSON.errors) {
+          errorString += `${responseJSON.errors[key]}\n`
+        }
+        alert(errorString)
+      } else {
+        dispatch({ type: 'ADD_RECIPE', recipe: responseJSON })
+      }
       //return responseJSON
     })
   }
