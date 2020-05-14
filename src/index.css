@@ -57,6 +57,10 @@ h1 {
   margin: 5px;
 }
 
+.bold-text {
+  font-weight: bolder
+}
+
 /* .recipe-card {
   transition: transform 1s;
   transform-style: preserve-3d;

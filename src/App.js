@@ -34,7 +34,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <TopNavBar categories={this.props.categories} changeCategory={this.props.changeSelectedCategory} loggedIn={this.props.loggedIn} />
+        <TopNavBar categories={this.props.categories} changeCategory={this.props.changeSelectedCategory} loggedIn={this.props.loggedIn} userEmail={this.props.userEmail} />
 
         <div className="recipe-form">
           <RecipeForm addRecipe={this.props.addRecipe} categories={this.props.categories} />
@@ -61,7 +61,8 @@ const mapStateToProps = state => {
     categoriesLoading: state.categoriesReducer.loading,
     selectedCategory: state.categoriesReducer.selectedCategory,
     notes: state.notesReducer.notes,
-    loggedIn: state.currentUser.logged_in
+    loggedIn: state.currentUser.logged_in,
+    userEmail: state.currentUser.current_user.email
   }
 }
 
