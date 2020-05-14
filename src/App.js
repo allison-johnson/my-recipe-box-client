@@ -21,7 +21,7 @@ class App extends Component {
     this.props.fetchRecipes()
     this.props.fetchCategories()
     this.props.fetchNotes()
-    this.props.getCurrentUser()
+    //this.props.getCurrentUser()
   }//componentDidMount 
 
   // handleDropdownChange = (event) => {
@@ -67,7 +67,7 @@ const mapStateToProps = state => {
     categoriesLoading: state.categoriesReducer.loading,
     selectedCategory: state.categoriesReducer.selectedCategory,
     notes: state.notesReducer.notes,
-    //loggedIn: state.currentUser.logged_in 
+    loggedIn: state.currentUser.user.logged_in 
   }
 }
 
@@ -78,8 +78,8 @@ const mapDispatchToProps = dispatch => {
     fetchNotes: () => dispatch(fetchNotes()),
     changeSelectedCategory: (category_id) => dispatch(changeSelectedCategory(category_id)),
     addRecipe: (formData) => dispatch(addRecipe(formData)),
-    login: (formData) => dispatch(login(formData)),
-    getCurrentUser: () => dispatch(getCurrentUser())
+    login: (formData) => dispatch(login(formData))
+    //getCurrentUser: () => dispatch(getCurrentUser())
   }
 }
 
