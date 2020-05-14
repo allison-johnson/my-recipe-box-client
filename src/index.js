@@ -10,6 +10,7 @@ import thunk from 'redux-thunk'
 import reducer from './reducers/index'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
+
 // Importing the Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css'
 

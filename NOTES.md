@@ -1,3 +1,14 @@
+*QUESTIONS*
+[] How to redirect to home page on user login using history?
+
+*TODO*
+[] Handle errors with login
+
+[] DB: recipe belongs_to :user
+    [] only load recipes for current user
+    
+[] New users can sign up
+
 [] New recipe form should only render when button is clicked (?)
 
 [] Turn recipeCard into a "stateless, functional" component?
@@ -21,7 +32,6 @@
 
 [] User auth
 
+*STRETCH GOALS*
 [] Drag and drop into weekly menu!
 
-Questions
-1. How can I make headers bold? font-weight in CSS doesn't appear to do anything.

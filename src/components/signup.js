@@ -3,12 +3,10 @@ import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { FormControl } from 'react-bootstrap'
-//import { updateLoginForm } from '../actions/loginForm.js'
-//import { login } from '../actions/currentUser.js'
 
-export class Login extends Component {
-  constructor() {
-    super()
+class Signup extends Component {
+  constructor(props){
+    super(props)
     this.state = {
       email: '',
       password: ''
@@ -17,9 +15,9 @@ export class Login extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    let newSession = {...this.state}
-    //this.props.login(newSession, history) //but where does the Login class get 'history' from?
-    this.props.login(newSession)
+    let newUser = {...this.state}
+    console.log("newUser in handleSubmit: ", newUser)
+    this.props.signup(newUser)
   }//handleSubmit
 
   handleChange = (event) => {
@@ -33,10 +31,10 @@ export class Login extends Component {
       <Form inline onSubmit={event => this.handleSubmit(event)}>
         <FormControl type="text" name="email" placeholder="Email" className="mr-sm-2" onChange={event => this.handleChange(event)} />
         <FormControl type="password" name="password" placeholder="Password" className="mr-sm-2" onChange={event => this.handleChange(event)} />
-        <Button type="submit" variant="outline-success" style={{margin: '10px'}}>Log In</Button>
+        <Button type="submit" variant="outline-success" style={{margin: '10px'}}>Sign Up</Button>
       </Form>
     )
   }//render
 }//class
 
-export default Login
+export default Signup

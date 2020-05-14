@@ -1,3 +1,23 @@
+export const signup = (credentials) => {
+  console.log("credentials in signup: ", credentials)
+  return (dispatch) => {
+    return fetch('http://localhost:3001/users', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(credentials)
+    }).then(response => {
+      return response.json()
+    }).then(responseJSON => {
+      console.log("responseJSON in signup: ", responseJSON)
+      dispatch({ type: 'SET_CURRENT_USER', user: responseJSON})
+    })
+  }
+}
+
 export const login = (credentials) => {
   return (dispatch) => {
     return fetch('http://localhost:3001/login', {
@@ -13,6 +33,7 @@ export const login = (credentials) => {
     }).then(responseJSON => {
       console.log("responseJSON in login: ", responseJSON)
       dispatch({ type: 'SET_CURRENT_USER', user: responseJSON})
+      //history.push('/') //also add 'history' to parameters, should get passed by login form on submit
     })
   }
 }
