@@ -9,7 +9,7 @@ class RecipesContainer extends Component {
   }
 
   renderAllCards() {
-    return this.props.recipes.filter(recipe => recipe.user_id === parseInt(this.props.userId)).map((recipe, idx) => { return(
+    return this.props.recipes.filter(recipe => recipe.user_id === parseInt(this.props.viewingRecipesOf)).map((recipe, idx) => { return(
       <div className="recipe-card">
         <RecipeCard key={idx} recipe={recipe} />
       </div> )
