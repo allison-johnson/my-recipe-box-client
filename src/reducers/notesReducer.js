@@ -22,7 +22,14 @@ const notesReducer = (state = {notes: [], loading: false}, action) => {
         notes: [...state.notes, action.note],
         loading: false
       }
-    
+
+    case 'DELETE_NOTE':
+      return {
+          ...state,
+          notes: state.notes.filter(note => note.id !== action.id),
+          loading: false 
+      }
+
     default:
       return state
   }//switch

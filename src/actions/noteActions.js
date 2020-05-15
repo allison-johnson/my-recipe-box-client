@@ -37,3 +37,17 @@ export const addNote = (noteData) => {
     })
   }//return
 }//addNote 
+
+export const deleteNote = (id) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3001/notes/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).finally(responseJSON => {
+      dispatch({ type: 'DELETE_NOTE', id})
+    })
+  }
+}//deleteNote 

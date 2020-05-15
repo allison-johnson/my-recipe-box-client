@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button'
 
 class NotesList extends Component {
+  handleClick = (e) => {
+    this.props.deleteNote(parseInt(e.target.id))
+  }
+
   render() {
-    console.log("this.props.notes inside of NotesList: ", this.props.notes)
     return (
       <div>
-        {this.props.notes.map(note => <li>{note.content}<button className="delete-note-button">DELETE</button></li>)}
+        {this.props.notes.map(note => <li>{note.content}<button id={note.id} className="delete-note-button" onClick={e => this.handleClick(e)}>DELETE</button></li>)}
       </div>
     )
   }
