@@ -1,5 +1,4 @@
 *QUESTIONS*
-[] How to redirect to home page on user login using history?
 
 *TODO*
 [] Handle errors with login
