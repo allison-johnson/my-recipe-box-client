@@ -28,6 +28,8 @@ const recipesReducer = (state = {recipes: [], loading: false}, action) => {
         recipes: state.recipes.filter(recipe => recipe.id !== action.id),
         loading: false 
       }
+    
+
 
     default:
       return state

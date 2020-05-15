@@ -5,14 +5,15 @@
 *TODO*
 [] Handle errors with login/signup (on front end as well, like Melia's)
 
-[] New recipe form should only render when button is clicked (?)
-
 [] Database changes
-    [] recipe belongs_to :user
+    [x] recipe belongs_to :user
     [] only load recipes for current user
     [] option of seeing (but not deleting) other users' recipes (and notes?)
         [] 'users' dropdown menu on navbar
         [] no 'manage recipes' option on navbar if you're viewing someone else's recipes
+            [] or, 'manage recipes' always liks to your own recipes
+
+[] Spruce up app-info class in recipesContainer
 
 *CLEAN UP CODE*
 [] Presentational/container/stateless components?

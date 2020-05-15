@@ -38,11 +38,12 @@ class App extends Component {
     if (parseInt(this.props.selectedCategory) === 0) {
       return this.props.recipes
     } else {
-      return this.props.recipes.filter(recipe => recipe.category_id === parseInt(this.props.selectedCategory))
+      return this.props.recipes.filter(recipe => recipe.category_id === parseInt(this.props.selectedCategory) && (recipe.user_id === parseInt(this.props.userId)))
     }
   }
 
   render() {
+    console.log("props in App: ", this.props)
     return (
       <div className="App">
 
@@ -57,7 +58,7 @@ class App extends Component {
 
         <Switch >
           <Route exact path="/manage-recipes" render={(routerProps) => <RecipesList {...routerProps} recipes={this.props.recipes} notes={this.props.notes} />} />
-          <Route exact path="/" render={(routerProps) => <RecipesContainer {...routerProps} recipes={this.filterRecipes()}/>} />
+          <Route exact path="/" render={(routerProps) => <RecipesContainer {...routerProps} recipes={this.filterRecipes()} loggedIn={this.props.loggedIn} />} />
           <Route exact path="/login" render={(routerProps) => <Login {...routerProps} login={this.props.login} />} />
           <Route exact path="/signup" render={(routerProps) => <Signup {...routerProps} signup={this.props.signup} />} />
           <Route exact path="/logout" component={Logout} />
@@ -77,7 +78,8 @@ const mapStateToProps = state => {
     selectedCategory: state.categoriesReducer.selectedCategory,
     notes: state.notesReducer.notes,
     loggedIn: state.currentUser.logged_in,
-    userEmail: state.currentUser.logged_in ? state.currentUser.current_user.email : ''
+    userEmail: state.currentUser.logged_in ? state.currentUser.current_user.email : '',
+    userId: state.currentUser.logged_in ? state.currentUser.current_user.id : 0
   }
 }
 
