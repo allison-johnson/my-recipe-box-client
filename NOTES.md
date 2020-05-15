@@ -1,21 +1,22 @@
 *QUESTIONS*
 [] How to eliminate the need for an "extra" form in order to logout?
+[] Before a recipe gets deleted from DB, I delete all of its associated notes (from the DB). Do I have to do anything on the front end to reflect this change?
 
 *TODO*
-[] Handle errors with login
-
-[] DB: recipe belongs_to :user
-    [] only load recipes for current user
+[] Handle errors with login/signup (on front end as well, like Melia's)
 
 [] New recipe form should only render when button is clicked (?)
 
-[] Turn recipeCard into a "stateless, functional" component?
+[] Database changes
+    [] recipe belongs_to :user
+    [] only load recipes for current user
+    [] option of seeing (but not deleting) other users' recipes (and notes?)
+        [] 'users' dropdown menu on navbar
+        [] no 'manage recipes' option on navbar if you're viewing someone else's recipes
 
-[] Allow user to enter in recipes without a URL/picture as well?
-
-[x] Delete a recipe
-    [] Add confirmation before deleting
-    [] Delete notes associated with that recipe
+*CLEAN UP CODE*
+[] Presentational/container/stateless components?
+[] Rewrite stateless components as functional components
 
 *STRETCH GOALS*
 [] Drag and drop into weekly menu!

@@ -38,7 +38,7 @@ class RecipeControls extends Component {
   }//return
 }//class
 
-//This should be the class that grabs the list of notes and the deleteNote function from the store
+//This should be the class that grabs the list of notes from the store to pass down to NotesList
 const mapStateToProps = state => {
   return {
     notes: state.notesReducer.notes 

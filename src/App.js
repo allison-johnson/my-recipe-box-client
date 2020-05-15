@@ -14,6 +14,18 @@ import Login from './components/login'
 import Signup from './components/signup'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      showRecipeForm: false 
+    }
+  }
+
+  toggleShowRecipeForm = () => {
+    this.setState({
+      showRecipeForm: !this.state.showRecipeForm 
+    })
+  }
 
   componentDidMount() {
     this.props.fetchRecipes()
@@ -34,11 +46,14 @@ class App extends Component {
     return (
       <div className="App">
 
-        <TopNavBar categories={this.props.categories} changeCategory={this.props.changeSelectedCategory} loggedIn={this.props.loggedIn} userEmail={this.props.userEmail} />
+        <TopNavBar categories={this.props.categories} changeCategory={this.props.changeSelectedCategory} loggedIn={this.props.loggedIn} userEmail={this.props.userEmail} toggle={this.toggleShowRecipeForm} />
 
-        <div className="recipe-form">
-          <RecipeForm addRecipe={this.props.addRecipe} categories={this.props.categories} />
-        </div>
+        {this.state.showRecipeForm ?
+          <div className="recipe-form">
+            <RecipeForm addRecipe={this.props.addRecipe} categories={this.props.categories} />
+          </div>
+          : null
+        }
 
         <Switch >
           <Route exact path="/manage-recipes" render={(routerProps) => <RecipesList {...routerProps} recipes={this.props.recipes} notes={this.props.notes} />} />

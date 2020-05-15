@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 class TopNavBar extends Component {
 
   handleDropdownChange = (event) => {
     this.props.changeCategory(event)
+  }
+
+  toggleForm = (e) => {
+    this.props.toggle()
   }
 
   render() {
@@ -23,6 +29,9 @@ class TopNavBar extends Component {
             {this.props.categories.map(category => <NavDropdown.Item eventKey={category.id}>{category.name}</NavDropdown.Item>)}
           </NavDropdown>
         </Nav>
+        <Form inline>
+          <Button variant="outline-success" onClick={e => this.toggleForm(e)}>Add Recipe to Box</Button>
+        </Form>
       </Navbar>
       :
       <Navbar bg="light">
