@@ -27,7 +27,7 @@ class RecipeControls extends Component {
         <Button style={{margin: '5px'}} id={this.props.recipe.id} variant="danger" size="sm" onClick={e => this.handleDeleteClick(e)}>Delete Recipe</Button>{' '}
         <Button id={this.props.recipe.id} variant="warning" size="sm" onClick={e => this.handleNotesClick(e)}>Manage Recipe Notes</Button>
         {this.state.showNotes ? 
-          <NotesList notes={this.props.recipe.notes.filter(note => note.recipe_id === this.props.recipe.id)} /> 
+          <div className="notes-list"><NotesList notes={this.props.recipe.notes.filter(note => note.recipe_id === this.props.recipe.id)} /></div>
           : null 
         }
         </li>
