@@ -21,11 +21,14 @@ class RecipeCard extends Component {
             <RecipeNotes notes={this.props.notes.filter(note => note.recipe_id === this.props.recipe.id)} />
           </Card.Text>
         </Card.Body>
-        <Popup trigger={<Button className="add-note" variant="light">Add Note</Button>} position="right" closeOnDocumentClick>
+        { this.props.viewingOwnRecipes ?
+          <Popup trigger={<Button className="add-note" variant="light">Add Note</Button>} position="right" closeOnDocumentClick>
           <div>
             <NoteForm recipe_id={this.props.recipe.id} addNote={this.props.addNote}/>
           </div>
-        </Popup>
+          </Popup>
+          : null 
+        }
       </Card>
       </div>
     )
