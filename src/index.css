@@ -57,8 +57,9 @@ h1 {
   margin: 5px;
 }
 
-.bold-text {
-  font-weight: bolder
+.welcome-text {
+  font-weight: bolder;
+  margin-right: 10px
 }
 
 .notes-list {
@@ -73,7 +74,7 @@ h1 {
   color: #069;
   text-decoration: underline;
   cursor: pointer;
-  margin: 0px 0px 0px 5px;
+  margin-left: 5px;
 }
 
 /* .recipe-card {

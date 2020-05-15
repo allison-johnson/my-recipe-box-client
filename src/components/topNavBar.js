@@ -12,7 +12,7 @@ class TopNavBar extends Component {
       this.props.loggedIn ?
       <Navbar bg="light">
         <Nav className="mr-auto">
-          <Navbar.Text className="bold-text">
+          <Navbar.Text className="welcome-text">
             Welcome {this.props.userEmail}
           </Navbar.Text>
           <Nav.Link href="/logout">Log Out</Nav.Link>
