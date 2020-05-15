@@ -9,16 +9,15 @@ class RecipesContainer extends Component {
   }
 
   renderAllCards() {
-    return this.props.recipes.map((recipe, idx) => { return(
+    return this.props.recipes.filter(recipe => recipe.user_id === parseInt(this.props.userId)).map((recipe, idx) => { return(
       <div className="recipe-card">
         <RecipeCard key={idx} recipe={recipe} />
-        {/* <RecipeCardBack key={idx} recipe={recipe} /> */}
       </div> )
     })
   }
 
   render() {
-    console.log("this.props.loggedIn: ", this.props.loggedIn)
+    console.log("In recipesContainer, viewingRecipes of: ", this.props.viewingRecipesOf)
     return (
       <div className="recipe-box-container">
       { this.props.loggedIn ?
@@ -27,7 +26,8 @@ class RecipesContainer extends Component {
             <CardDeck>{this.renderAllCards()}</CardDeck>
           </div>
           : 
-          <div className="app-info">
+          <div className="app-info" style={{margin: '10px'}}>
+            <h1>My Recipe Box</h1>
             Please log in or sign up to begin using My Recipe Box!
           </div>
       }

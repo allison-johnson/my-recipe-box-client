@@ -5,8 +5,12 @@ import Button from 'react-bootstrap/Button'
 
 class TopNavBar extends Component {
 
-  handleDropdownChange = (event) => {
+  handleCategoryDropdownChange = (event) => {
     this.props.changeCategory(event)
+  }
+
+  handleUserDropdownChange = (event) => {
+    this.props.changeViewingRecipesOf(event)
   }
 
   toggleForm = (e) => {
@@ -23,11 +27,17 @@ class TopNavBar extends Component {
           </Navbar.Text>
           <Nav.Link href="/logout">Log Out</Nav.Link>
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/manage-recipes">Manage Recipes</Nav.Link>
-          <NavDropdown title="Categories" id="basic-nav-dropdown" onSelect={event => this.handleDropdownChange(event)}>
+          <Nav.Link href="/manage-recipes">Manage My Recipes</Nav.Link>
+
+          <NavDropdown title="Categories" id="basic-nav-dropdown" onSelect={e => this.handleCategoryDropdownChange(e)}>
             <NavDropdown.Item eventKey={0}>All</NavDropdown.Item>
             {this.props.categories.map(category => <NavDropdown.Item eventKey={category.id}>{category.name}</NavDropdown.Item>)}
           </NavDropdown>
+
+          <NavDropdown title="Other Recipe Boxes" id="basic-nav-dropdown" onSelect={e => this.handleUserDropdownChange(e)}>
+            {this.props.users.map(user => <NavDropdown.Item eventKey={user.id}>{user.email}</NavDropdown.Item>)}
+          </NavDropdown>
+
         </Nav>
         <Form inline>
           <Button variant="outline-success" onClick={e => this.toggleForm(e)}>Add Recipe to Box</Button>
@@ -38,12 +48,6 @@ class TopNavBar extends Component {
       <Nav className="mr-auto">
         <Nav.Link href="/login">Log In</Nav.Link>
         <Nav.Link href="/signup">Sign Up</Nav.Link>
-        {/* <Nav.Link href="/">Home</Nav.Link>
-        <Nav.Link href="/manage-recipes">Manage Recipes</Nav.Link>
-        <NavDropdown title="Categories" id="basic-nav-dropdown" onSelect={event => this.handleDropdownChange(event)}>
-          <NavDropdown.Item eventKey={0}>All</NavDropdown.Item>
-          {this.props.categories.map(category => <NavDropdown.Item eventKey={category.id}>{category.name}</NavDropdown.Item>)}
-        </NavDropdown> */}
       </Nav>
     </Navbar>
     )

@@ -10,7 +10,8 @@ export class RecipeForm extends Component {
       name: '',
       url: '',
       img_url: '',
-      category_id: 0
+      category_id: 0,
+      user_id: this.props.userId
     }
   }
 
