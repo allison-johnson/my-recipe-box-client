@@ -11,6 +11,14 @@ class RecipeCards extends Component {
     })
   }
 
+  getUserName() {
+    if (this.props.users.length > 0) {
+      return this.props.users.find(user => user.id === parseInt(this.props.viewingRecipesOf)).first_name
+    } else {
+      return ''
+    }
+  }
+
   render() {
     return (
       <div className="recipe-cards">
@@ -21,7 +29,8 @@ class RecipeCards extends Component {
         </div>    
         :
         <div className="other-recipes">
-          <h1>{this.props.viewingRecipesOf}'s Recipe Box</h1>
+          {/* <h1>{this.props.viewingRecipesOf}'s Recipe Box</h1> */}
+          <h1>{this.getUserName()}'s Recipe Box</h1>
           <CardDeck>{this.renderAllCards()}</CardDeck> 
         </div>
       }

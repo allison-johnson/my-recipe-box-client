@@ -9,8 +9,6 @@
 *TODO*
 [] Remove uniqueness from recipe_url validation?
 
-[] Replace user id with user email in header (or, add first name to user?)
-
 [] Handle errors with login/signup (on front end as well, like Melia's)
 
 [] Get rid of all warnings!

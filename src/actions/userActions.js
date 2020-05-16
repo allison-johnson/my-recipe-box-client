@@ -14,7 +14,7 @@ export const signup = (credentials, history) => {
     }).then(response => {
       return response.json()
     }).then(responseJSON => {
-      //console.log("responseJSON in signup: ", responseJSON)
+      console.log("responseJSON in signup: ", responseJSON)
       dispatch({ type: 'SET_CURRENT_USER', user: responseJSON})
       dispatch({ type: 'SET_SELECTED_USER', user: responseJSON })
       history.push('/') //Add history to parameters, should get passed by signup form on submit

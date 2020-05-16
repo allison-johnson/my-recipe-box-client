@@ -8,6 +8,7 @@ class Signup extends Component {
   constructor(props){
     super(props)
     this.state = {
+      first_name: '',
       email: '',
       password: ''
     }
@@ -29,6 +30,7 @@ class Signup extends Component {
   render() {
     return (
       <Form inline onSubmit={event => this.handleSubmit(event)}>
+        <FormControl type="text" name="first_name" placeholder="First Name" className="mr-sm-2" onChange={event => this.handleChange(event)} />
         <FormControl type="text" name="email" placeholder="Email" className="mr-sm-2" onChange={event => this.handleChange(event)} />
         <FormControl type="password" name="password" placeholder="Password" className="mr-sm-2" onChange={event => this.handleChange(event)} />
         <Button type="submit" variant="outline-success" style={{margin: '10px'}}>Sign Up</Button>

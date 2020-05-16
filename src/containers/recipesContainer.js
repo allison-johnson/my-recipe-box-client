@@ -16,7 +16,7 @@ class RecipesContainer extends Component {
           <div className="recipe-box">  
             {/* <h1>My Recipe Box</h1>
             <CardDeck>{this.renderAllCards()}</CardDeck> */}
-            <RecipeCards userId={this.props.userId} viewingRecipesOf={this.props.viewingRecipesOf} recipes={this.props.recipes} />
+            <RecipeCards userId={this.props.userId} viewingRecipesOf={this.props.viewingRecipesOf} recipes={this.props.recipes} users={this.props.users} />
           </div>
           : 
           <div className="app-info" style={{margin: '10px'}}>

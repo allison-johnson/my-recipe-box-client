@@ -47,6 +47,12 @@ class App extends Component {
     }
   }
 
+  // getSelectedUserName = () => {
+  //   let first_name = this.props.users.find(user => user.id === this.props.viewingRecipesOf).first_name
+  //   console.log("first_name: ", first_name)
+  //   return first_name
+  // }
+
   render() {
     //console.log("props in App: ", this.props)
     return (
@@ -63,7 +69,7 @@ class App extends Component {
 
         <Switch >
           <Route exact path="/manage-recipes" render={(routerProps) => <RecipesList {...routerProps} recipes={this.props.recipes} notes={this.props.notes} loggedIn={this.props.loggedIn} userId={this.props.userId} />} />
-          <Route exact path="/" render={(routerProps) => <RecipesContainer {...routerProps} recipes={this.filterRecipes()} loggedIn={this.props.loggedIn} userId={this.props.userId} viewingRecipesOf={this.props.viewingRecipesOf} changeViewingRecipesOf={this.props.changeViewingRecipesOf} />} />
+          <Route exact path="/" render={(routerProps) => <RecipesContainer {...routerProps} recipes={this.filterRecipes()} loggedIn={this.props.loggedIn} userId={this.props.userId} viewingRecipesOf={this.props.viewingRecipesOf} changeViewingRecipesOf={this.props.changeViewingRecipesOf} users={this.props.users} />} />
           <Route exact path="/login" render={(routerProps) => <Login {...routerProps} login={this.props.login} />} />
           <Route exact path="/signup" render={(routerProps) => <Signup {...routerProps} signup={this.props.signup} />} />
           <Route exact path="/logout" component={Logout} />
