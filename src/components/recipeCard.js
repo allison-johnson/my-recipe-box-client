@@ -20,6 +20,7 @@ class RecipeCard extends Component {
           <Card.Text className="recipe-notes">
             <RecipeNotes notes={this.props.notes.filter(note => note.recipe_id === this.props.recipe.id)} />
           </Card.Text>
+          <Card.Link href={this.props.recipe.url}>View Recipe</Card.Link>
         </Card.Body>
         { this.props.viewingOwnRecipes ?
           <Popup trigger={<Button className="add-note" variant="light">Add Note</Button>} position="right" closeOnDocumentClick>
