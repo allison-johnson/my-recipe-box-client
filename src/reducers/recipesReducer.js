@@ -29,8 +29,6 @@ const recipesReducer = (state = {recipes: [], loading: false}, action) => {
         loading: false 
       }
     
-
-
     default:
       return state
   }//switch

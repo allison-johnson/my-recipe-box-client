@@ -1,3 +1,5 @@
+//Actions related to user auth
+//Related reducer: currentUser.js
 export const signup = (credentials) => {
   console.log("credentials in signup: ", credentials)
   return (dispatch) => {
@@ -12,14 +14,13 @@ export const signup = (credentials) => {
     }).then(response => {
       return response.json()
     }).then(responseJSON => {
-      console.log("responseJSON in signup: ", responseJSON)
+      //console.log("responseJSON in signup: ", responseJSON)
       dispatch({ type: 'SET_CURRENT_USER', user: responseJSON})
     })
   }
 }
 
 export const login = (credentials, history) => {
-  //console.log("history: ", history) //history not getting passed correctly from login's onSubmit
   return (dispatch) => {
     return fetch('http://localhost:3001/login', {
       method: 'POST',
@@ -33,7 +34,8 @@ export const login = (credentials, history) => {
       return response.json()
     }).then(responseJSON => {
       console.log("responseJSON in login: ", responseJSON)
-      dispatch({ type: 'SET_CURRENT_USER', user: responseJSON})
+      dispatch({ type: 'SET_CURRENT_USER', user: responseJSON })
+      dispatch({ type: 'SET_SELECTED_USER', user: responseJSON })
       history.push('/') //also add 'history' to parameters, should get passed by login form on submit
     })
   }
@@ -49,7 +51,12 @@ export const getCurrentUser = () => {
       }
     }).then(response => response.json())
     .then(response => {
+      console.log("response in getCurrentUser: ", response)
       dispatch(setCurrentUser(response))
+      //This changes the selected user to match the current (logged in) user
+      if (response.logged_in){
+        dispatch({type: 'CHANGE_SELECTED_USER', user_id: response.current_user.id})
+      }
     })
   }
 }

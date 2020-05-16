@@ -10,7 +10,12 @@ class TopNavBar extends Component {
   }
 
   handleUserDropdownChange = (event) => {
+    console.log("event in handleUserDropdownChange: ", event)
     this.props.changeViewingRecipesOf(event)
+  }
+
+  handleRedirectToHome = (event) => {
+    this.props.changeViewingRecipesOf(this.props.userId)
   }
 
   toggleForm = (e) => {
@@ -26,7 +31,7 @@ class TopNavBar extends Component {
             Welcome {this.props.userEmail}
           </Navbar.Text>
           <Nav.Link href="/logout">Log Out</Nav.Link>
-          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/" onClick={e => this.handleRedirectToHome}>Home</Nav.Link>
           <Nav.Link href="/manage-recipes">Manage My Recipes</Nav.Link>
 
           <NavDropdown title="Categories" id="basic-nav-dropdown" onSelect={e => this.handleCategoryDropdownChange(e)}>

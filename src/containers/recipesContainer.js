@@ -21,8 +21,9 @@ class RecipesContainer extends Component {
   // }
 
   render() {
-    console.log("In recipesContainer, viewingRecipes of: ", this.props.viewingRecipesOf)
-    console.log("In recipesContainer, userId: ", this.props.userId)
+    // console.log("In recipesContainer, viewingRecipes of: ", this.props.viewingRecipesOf)
+    // console.log("In recipesContainer, userId: ", this.props.userId)
+
     return (
       <div className="recipe-box-container">
       { this.props.loggedIn ?

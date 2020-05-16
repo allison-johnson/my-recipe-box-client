@@ -4,7 +4,7 @@ import { fetchRecipes, addRecipe } from './actions/recipeActions'
 import { fetchCategories, changeSelectedCategory } from './actions/categoryActions'
 import { fetchNotes } from './actions/noteActions'
 import { login, getCurrentUser, signup } from './actions/userActions'
-import { fetchUsers } from './actions/usersActions'
+import { fetchUsers, changeViewingRecipesOf } from './actions/usersActions'
 import RecipesContainer from './containers/recipesContainer'
 import RecipeForm from './components/recipeForm'
 import TopNavBar from './components/topNavBar'
@@ -19,7 +19,6 @@ class App extends Component {
     super(props)
     this.state = {
       showRecipeForm: false,
-      viewingRecipesOf: this.props.userId
     }
   }
 
@@ -29,18 +28,20 @@ class App extends Component {
     })
   }
 
-  changeViewingRecipesOf = (id) => {
-    this.setState({
-      viewingRecipesOf: id 
-    })
-  }
+  // changeViewingRecipesOf = (id) => {
+  //   this.setState({
+  //     viewingRecipesOf: id 
+  //   })
+  // }
 
   componentDidMount() {
+    console.log("this.props.userId in componentDidMount: ", this.props.userId)
     this.props.fetchRecipes()
     this.props.fetchCategories()
     this.props.fetchNotes()
     this.props.getCurrentUser()
     this.props.fetchUsers()
+    //this.props.changeViewingRecipesOf(this.props.userId)
   }//componentDidMount 
 
   filterRecipes = () => {
@@ -52,10 +53,11 @@ class App extends Component {
   }
 
   render() {
+    console.log("props in App: ", this.props)
     return (
       <div className="App">
 
-        <TopNavBar categories={this.props.categories} changeCategory={this.props.changeSelectedCategory} users={this.props.users} loggedIn={this.props.loggedIn} userEmail={this.props.userEmail} toggle={this.toggleShowRecipeForm} changeViewingRecipesOf={this.changeViewingRecipesOf} />
+        <TopNavBar categories={this.props.categories} changeCategory={this.props.changeSelectedCategory} users={this.props.users} loggedIn={this.props.loggedIn} userEmail={this.props.userEmail} userId={this.props.userId} toggle={this.toggleShowRecipeForm} changeViewingRecipesOf={this.props.changeViewingRecipesOf} viewingRecipesOf={this.props.viewingRecipesOf} />
 
         {this.state.showRecipeForm ?
           <div className="recipe-form">
@@ -66,7 +68,7 @@ class App extends Component {
 
         <Switch >
           <Route exact path="/manage-recipes" render={(routerProps) => <RecipesList {...routerProps} recipes={this.props.recipes} notes={this.props.notes} loggedIn={this.props.loggedIn} userId={this.props.userId} />} />
-          <Route exact path="/" render={(routerProps) => <RecipesContainer {...routerProps} recipes={this.filterRecipes()} loggedIn={this.props.loggedIn} userId={this.props.userId} viewingRecipesOf={this.state.viewingRecipesOf} />} />
+          <Route exact path="/" render={(routerProps) => <RecipesContainer {...routerProps} recipes={this.filterRecipes()} loggedIn={this.props.loggedIn} userId={this.props.userId} viewingRecipesOf={this.props.viewingRecipesOf} changeViewingRecipesOf={this.props.changeViewingRecipesOf} />} />
           <Route exact path="/login" render={(routerProps) => <Login {...routerProps} login={this.props.login} />} />
           <Route exact path="/signup" render={(routerProps) => <Signup {...routerProps} signup={this.props.signup} />} />
           <Route exact path="/logout" component={Logout} />
@@ -88,7 +90,8 @@ const mapStateToProps = state => {
     notes: state.notesReducer.notes,
     loggedIn: state.currentUser.logged_in,
     userEmail: state.currentUser.logged_in ? state.currentUser.current_user.email : '',
-    userId: state.currentUser.logged_in ? state.currentUser.current_user.id : 0
+    userId: state.currentUser.logged_in ? state.currentUser.current_user.id : 0,
+    viewingRecipesOf: state.usersReducer.selectedUser
   }
 }
 
@@ -99,6 +102,7 @@ const mapDispatchToProps = dispatch => {
     fetchNotes: () => dispatch(fetchNotes()),
     fetchUsers: () => dispatch(fetchUsers()),
     changeSelectedCategory: (category_id) => dispatch(changeSelectedCategory(category_id)),
+    changeViewingRecipesOf: (user_id) => dispatch(changeViewingRecipesOf(user_id)),
     addRecipe: (formData) => dispatch(addRecipe(formData)),
     login: (formData, history) => dispatch(login(formData, history)),
     getCurrentUser: () => dispatch(getCurrentUser()),

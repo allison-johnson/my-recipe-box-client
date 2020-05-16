@@ -8,4 +8,10 @@ export const fetchUsers = () => {
           dispatch({ type: 'ADD_USERS', users: responseJSON })
       })
     }//return
-  }//fetchRecipes
+}//fetchUsers
+
+export const changeViewingRecipesOf = (user_id) => {
+  return (dispatch) => {
+    dispatch({type: 'CHANGE_SELECTED_USER', user_id: user_id})
+  }//return
+}//changeViewingRecipesOf 
