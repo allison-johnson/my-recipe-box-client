@@ -15,7 +15,6 @@ const usersReducer = (state = {users: [], loading: false, selectedUser: 0}, acti
         }
 
       case 'CHANGE_SELECTED_USER':
-        console.log("action inside CHANGE_SELECTED_USER: ", action)
         return {
           ...state,
           users: [...state.users],

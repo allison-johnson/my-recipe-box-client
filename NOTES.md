@@ -1,10 +1,14 @@
 *QUESTIONS*
 [] How to eliminate the need for an "extra" form in order to logout?
 
+[] How to get rid of warnings which stem from rendering lists from within bootstrap card components?
+
 [] Should filtering of recipes by user happen on back end or front end?
     - Right now it's on the front end, which seems like a good choice because only one fetch request to the API is required to load all of the recipes when the app is first loaded, as opposed to making a fetch request each time a new filter is desired
 
 *TODO*
+[] Remove uniqueness from recipe_url validation?
+
 [] Replace user id with user email in header (or, add first name to user?)
 
 [] Handle errors with login/signup (on front end as well, like Melia's)

@@ -19,8 +19,7 @@ export class Login extends Component {
     console.log("this.props.history inside handleSubmit login form: ", this.props.history)
     event.preventDefault()
     let newSession = {...this.state}
-    this.props.login(newSession, this.props.history) //but where does the Login class get 'history' from?
-    //this.props.login(newSession)
+    this.props.login(newSession, this.props.history) //update login in App's MDTP
   }//handleSubmit
 
   handleChange = (event) => {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Button from 'react-bootstrap/Button'
 
 class NotesList extends Component {
   handleClick = (e) => {
@@ -8,9 +7,9 @@ class NotesList extends Component {
 
   render() {
     return (
-      <div>
-        {this.props.notes.map(note => <li>{note.content}<button id={note.id} className="delete-note-button" onClick={e => this.handleClick(e)}>DELETE</button></li>)}
-      </div>
+      <React.Fragment>
+        {this.props.notes.map(note => <li key={note.id}>{note.content}<button id={note.id} className="delete-note-button" onClick={e => this.handleClick(e)}>DELETE</button></li>)}
+      </React.Fragment>
     )
   }
 }

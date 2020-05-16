@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { Route, Switch } from 'react-router-dom'
+
 import { fetchRecipes, addRecipe } from './actions/recipeActions'
 import { fetchCategories, changeSelectedCategory } from './actions/categoryActions'
 import { fetchNotes } from './actions/noteActions'
 import { login, getCurrentUser, signup } from './actions/userActions'
 import { fetchUsers, changeViewingRecipesOf } from './actions/usersActions'
+
 import RecipesContainer from './containers/recipesContainer'
 import RecipeForm from './components/recipeForm'
 import TopNavBar from './components/topNavBar'
 import Logout from './components/logout'
-import { BrowserRouter as Router, Route, Switch, withRouter } from 'react-router-dom'
 import RecipesList from './components/recipesList'
 import Login from './components/login'
 import Signup from './components/signup'
@@ -28,14 +30,7 @@ class App extends Component {
     })
   }
 
-  // changeViewingRecipesOf = (id) => {
-  //   this.setState({
-  //     viewingRecipesOf: id 
-  //   })
-  // }
-
   componentDidMount() {
-    console.log("this.props.userId in componentDidMount: ", this.props.userId)
     this.props.fetchRecipes()
     this.props.fetchCategories()
     this.props.fetchNotes()
@@ -53,7 +48,7 @@ class App extends Component {
   }
 
   render() {
-    console.log("props in App: ", this.props)
+    //console.log("props in App: ", this.props)
     return (
       <div className="App">
 
@@ -106,7 +101,7 @@ const mapDispatchToProps = dispatch => {
     addRecipe: (formData) => dispatch(addRecipe(formData)),
     login: (formData, history) => dispatch(login(formData, history)),
     getCurrentUser: () => dispatch(getCurrentUser()),
-    signup: (formData) => dispatch(signup(formData))
+    signup: (formData, history) => dispatch(signup(formData, history))
   }
 }
 

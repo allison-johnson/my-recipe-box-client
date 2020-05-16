@@ -36,11 +36,11 @@ class TopNavBar extends Component {
 
           <NavDropdown title="Categories" id="basic-nav-dropdown" onSelect={e => this.handleCategoryDropdownChange(e)}>
             <NavDropdown.Item eventKey={0}>All</NavDropdown.Item>
-            {this.props.categories.map(category => <NavDropdown.Item eventKey={category.id}>{category.name}</NavDropdown.Item>)}
+            {this.props.categories.map(category => <NavDropdown.Item key={category.id} eventKey={category.id}>{category.name}</NavDropdown.Item>)}
           </NavDropdown>
 
           <NavDropdown title="Other Recipe Boxes" id="basic-nav-dropdown" onSelect={e => this.handleUserDropdownChange(e)}>
-            {this.props.users.map(user => <NavDropdown.Item eventKey={user.id}>{user.email}</NavDropdown.Item>)}
+            {this.props.users.map(user => <NavDropdown.Item key={user.id} eventKey={user.id}>{user.email}</NavDropdown.Item>)}
           </NavDropdown>
 
         </Nav>

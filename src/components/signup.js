@@ -17,7 +17,7 @@ class Signup extends Component {
     event.preventDefault()
     let newUser = {...this.state}
     console.log("newUser in handleSubmit: ", newUser)
-    this.props.signup(newUser)
+    this.props.signup(newUser, this.props.history)
   }//handleSubmit
 
   handleChange = (event) => {

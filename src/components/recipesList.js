@@ -6,10 +6,6 @@ import RecipeControls from './recipeControls'
 import NotesList from './notesList'
 
 class RecipesList extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   handleNotesClick = (e) => {
     console.log("inside handleNotesClick");
     return <NotesList notes={this.props.notes.filter(note => note.recipe_id === e.target.id)} />
@@ -18,7 +14,7 @@ class RecipesList extends Component {
   render() {
     return (
       <div className="recipes-list" style={{margin: '10px'}}>
-        <ul>{this.props.recipes.filter(r => r.user_id === parseInt(this.props.userId)).map(recipe => <RecipeControls recipe={recipe} showNotes={false} deleteRecipe={this.props.deleteRecipe} deleteNote={this.props.deleteNote} />)}</ul>
+        <ul>{this.props.recipes.filter(r => r.user_id === parseInt(this.props.userId)).map(recipe => <RecipeControls key={recipe.id} recipe={recipe} showNotes={false} deleteRecipe={this.props.deleteRecipe} deleteNote={this.props.deleteNote} />)}</ul>
       </div>
     )
   }

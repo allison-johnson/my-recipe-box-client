@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 class RecipeNotes extends Component {
   render() {
     return (
-      <div>
-        <ul>{this.props.notes.map(note => <li>{note.content}</li>)}</ul>
-      </div>
+      <React.Fragment>
+        <ul>{this.props.notes.map(note => <li key={note.id}>{note.content}</li>)}</ul>
+      </React.Fragment>
     )
   }//render
 }//class 

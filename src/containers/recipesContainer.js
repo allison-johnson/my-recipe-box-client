@@ -5,21 +5,7 @@ import RecipeCards from '../components/recipeCards'
 // import CardDeck from 'react-bootstrap/CardDeck'
 
 class RecipesContainer extends Component {
-  constructor(props) {
-    super(props)
-    // this.state = {
-    //   viewingOwnRecipes: (parseInt(this.props.viewingRecipesOf) === parseInt(this.props.userId))
-    // }
-  }
-
-  // renderAllCards() {
-  //   return this.props.recipes.filter(recipe => recipe.user_id === parseInt(this.props.viewingRecipesOf)).map((recipe, idx) => { return(
-  //     <div className="recipe-card">
-  //       <RecipeCard key={idx} recipe={recipe} />
-  //     </div> )
-  //   })
-  // }
-
+  
   render() {
     // console.log("In recipesContainer, viewingRecipes of: ", this.props.viewingRecipesOf)
     // console.log("In recipesContainer, userId: ", this.props.userId)
