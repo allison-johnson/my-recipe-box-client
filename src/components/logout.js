@@ -9,7 +9,7 @@ const Logout = ({history, logout}) => {
         event.preventDefault()
         logout()
         history.push('/')
-    }}>
+    }} style={{margin: '10px'}}>
         <input type="submit" value="Log Out" />
     </form>
   )

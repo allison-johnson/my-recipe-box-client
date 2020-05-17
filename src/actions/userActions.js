@@ -14,10 +14,17 @@ export const signup = (credentials, history) => {
     }).then(response => {
       return response.json()
     }).then(responseJSON => {
-      console.log("responseJSON in signup: ", responseJSON)
-      dispatch({ type: 'SET_CURRENT_USER', user: responseJSON})
-      dispatch({ type: 'SET_SELECTED_USER', user: responseJSON })
-      history.push('/') //Add history to parameters, should get passed by signup form on submit
+      if (responseJSON.errors) {
+        let errorString = "";
+        for (const key in responseJSON.errors) {
+          errorString += `${responseJSON.errors[key]}\n`
+        }
+        alert(errorString)
+      } else {
+        dispatch({ type: 'SET_CURRENT_USER', user: responseJSON})
+        dispatch({ type: 'SET_SELECTED_USER', user: responseJSON })
+        history.push('/') //Add history to parameters, should get passed by signup form on submit
+      }
     })
   }
 }
@@ -35,10 +42,14 @@ export const login = (credentials, history) => {
     }).then(response => {
       return response.json()
     }).then(responseJSON => {
-      //console.log("responseJSON in login: ", responseJSON)
-      dispatch({ type: 'SET_CURRENT_USER', user: responseJSON })
-      dispatch({ type: 'SET_SELECTED_USER', user: responseJSON })
-      history.push('/') //also add 'history' to parameters, should get passed by login form on submit
+      if (responseJSON.error) {
+        alert(responseJSON.error)
+      } else {
+        //console.log("responseJSON in login: ", responseJSON)
+        dispatch({ type: 'SET_CURRENT_USER', user: responseJSON })
+        dispatch({ type: 'SET_SELECTED_USER', user: responseJSON })
+        history.push('/') //also add 'history' to parameters, should get passed by login form on submit
+      }
     })
   }
 }

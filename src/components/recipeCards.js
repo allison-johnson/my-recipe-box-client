@@ -12,7 +12,9 @@ class RecipeCards extends Component {
   }
 
   getUserName() {
-    if (this.props.users.length > 0) {
+    console.log("viewing recipes of: ", this.props.viewingRecipesOf)
+    console.log("this.props.users.length: ", this.props.users.length)
+    if (this.props.users.length > 0 && this.props.viewingRecipesOf > 0) {
       return this.props.users.find(user => user.id === parseInt(this.props.viewingRecipesOf)).first_name
     } else {
       return ''

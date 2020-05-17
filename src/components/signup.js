@@ -29,7 +29,7 @@ class Signup extends Component {
 
   render() {
     return (
-      <Form inline onSubmit={event => this.handleSubmit(event)}>
+      <Form inline onSubmit={event => this.handleSubmit(event)} style={{margin: '10px'}}>
         <FormControl type="text" name="first_name" placeholder="First Name" className="mr-sm-2" onChange={event => this.handleChange(event)} />
         <FormControl type="text" name="email" placeholder="Email" className="mr-sm-2" onChange={event => this.handleChange(event)} />
         <FormControl type="password" name="password" placeholder="Password" className="mr-sm-2" onChange={event => this.handleChange(event)} />

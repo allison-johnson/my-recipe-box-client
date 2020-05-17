@@ -7,8 +7,6 @@
     - Right now it's on the front end, which seems like a good choice because only one fetch request to the API is required to load all of the recipes when the app is first loaded, as opposed to making a fetch request each time a new filter is desired
 
 *TODO*
-[] Remove uniqueness from recipe_url validation?
-
 [] Handle errors with login/signup (on front end as well, like Melia's)
 
 [] Get rid of all warnings!
@@ -24,6 +22,10 @@
 *STRETCH GOALS*
 [] Can add another user's recipes to your own recipe box
     - In recipeCard.js, instead of 'null' option (when add note button is not rendered), include an option for adding recipe to your box!
+    - In DB, uniqueness validation should be combination of user_id and url (rather than just requiring the url be unique)
+    - Or, create a users_recipes join table!
+
 [] Drag and drop into weekly menu!
+
 [] Add confirmation before deleting recipe (react-confirm-alert)
 
