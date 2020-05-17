@@ -41,6 +41,7 @@ export class RecipeForm extends Component {
         <FormControl type="text" name="img_url" placeholder="Image URL" value={this.state.img_url} className="mr-sm-2" onChange={event => this.handleChange(event)} />
         <Form.Group>
           <Form.Control as="select" name="category_id" onChange={event => this.handleChange(event)}>
+            <option>Category</option>
             {this.props.categories.map(category => <option value={category.id}>{category.name}</option>)}
           </Form.Control>
         </Form.Group>

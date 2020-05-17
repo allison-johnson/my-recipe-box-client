@@ -28,7 +28,6 @@ class RecipeCards extends Component {
         <div className="my-recipes">
           <h1>My Recipe Box</h1>
           <CardDeck>{this.renderAllCards()}</CardDeck> 
-          {/* <a href="/manage-recipes">Manage my Recipes</a>  */}
         </div>    
         :
         <div className="other-recipes">

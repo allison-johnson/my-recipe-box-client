@@ -1,8 +1,5 @@
 import React, { Component} from 'react'
-// import RecipeCard from '../components/recipeCard'
 import RecipeCards from '../components/recipeCards'
-//import RecipeCardBack from '../components/recipeCardBack'
-// import CardDeck from 'react-bootstrap/CardDeck'
 
 class RecipesContainer extends Component {
   
@@ -11,8 +8,6 @@ class RecipesContainer extends Component {
       <div className="recipe-box-container">
       { this.props.loggedIn ?
           <div className="recipe-box">  
-            {/* <h1>My Recipe Box</h1>
-            <CardDeck>{this.renderAllCards()}</CardDeck> */}
             <RecipeCards userId={this.props.userId} viewingRecipesOf={this.props.viewingRecipesOf} recipes={this.props.recipes} users={this.props.users} />
           </div>
           : 
