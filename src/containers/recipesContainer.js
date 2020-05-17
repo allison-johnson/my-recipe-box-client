@@ -22,8 +22,8 @@ class RecipesContainer extends Component {
             <ul>
               <li>Create recipe cards with your favorite recipes from around the web</li>
               <li>Categorize your recipes for easy access</li>
-              <li>Record any notes you'd like to remember when you make the recipe again!</li>
-              <li>See your friends' favorite recipes!</li>
+              <li>Record any notes you'd like to remember when you make the recipe again</li>
+              <li>See your friends' favorite recipes</li>
             </ul>
             Encourage all of your buddies to sign up today, and happy cooking!
           </div>

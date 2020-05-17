@@ -43,15 +43,9 @@ class App extends Component {
     if (parseInt(this.props.selectedCategory) === 0) {
       return this.props.recipes
     } else {
-      return this.props.recipes.filter(recipe => recipe.category_id === parseInt(this.props.selectedCategory) && (recipe.user_id === parseInt(this.props.userId)))
+      return this.props.recipes.filter(recipe => recipe.category_id === parseInt(this.props.selectedCategory) && (recipe.user_id === parseInt(this.props.viewingRecipesOf)))
     }
   }
-
-  // getSelectedUserName = () => {
-  //   let first_name = this.props.users.find(user => user.id === this.props.viewingRecipesOf).first_name
-  //   console.log("first_name: ", first_name)
-  //   return first_name
-  // }
 
   render() {
     //console.log("props in App: ", this.props)
