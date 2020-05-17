@@ -40,7 +40,7 @@ class TopNavBar extends Component {
           </NavDropdown>
 
           <NavDropdown title="Other Recipe Boxes" id="basic-nav-dropdown" onSelect={e => this.handleUserDropdownChange(e)}>
-            {this.props.users.map(user => <NavDropdown.Item key={user.id} eventKey={user.id}>{user.first_name}</NavDropdown.Item>)}
+            {this.props.users.filter(user => user.id !== this.props.userId).map(user => <NavDropdown.Item key={user.id} eventKey={user.id}>{user.first_name}</NavDropdown.Item>)}
           </NavDropdown>
 
         </Nav>

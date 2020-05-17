@@ -27,11 +27,11 @@ class RecipeCards extends Component {
       { parseInt(this.props.userId) === parseInt(this.props.viewingRecipesOf) ?
         <div className="my-recipes">
           <h1>My Recipe Box</h1>
-          <CardDeck>{this.renderAllCards()}</CardDeck>  
+          <CardDeck>{this.renderAllCards()}</CardDeck> 
+          {/* <a href="/manage-recipes">Manage my Recipes</a>  */}
         </div>    
         :
         <div className="other-recipes">
-          {/* <h1>{this.props.viewingRecipesOf}'s Recipe Box</h1> */}
           <h1>{this.getUserName()}'s Recipe Box</h1>
           <CardDeck>{this.renderAllCards()}</CardDeck> 
         </div>

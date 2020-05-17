@@ -7,6 +7,8 @@
     - Right now it's on the front end, which seems like a good choice because only one fetch request to the API is required to load all of the recipes when the app is first loaded, as opposed to making a fetch request each time a new filter is desired
 
 *TODO*
+[] Other recipe boxes shouldn't include current user 
+
 [] When you click on another recipe box from 'Manage My Recipes', nothing happens
 
 [x] Get rid of all warnings!
