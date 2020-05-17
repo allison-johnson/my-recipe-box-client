@@ -20,6 +20,10 @@ code {
     monospace;*/
 }
 
+.title {
+  font-family: 'Pacifico', cursive; 
+}
+
 h1 {
   font-family: 'Roboto Condensed', sans-serif; 
   font-weight: 700;
@@ -76,38 +80,3 @@ h1 {
   cursor: pointer;
   margin-left: 5px;
 }
-
-/* .recipe-card {
-  transition: transform 1s;
-  transform-style: preserve-3d;
-}
-
-.recipe-card:hover {
-  transform: scale(1.05);
-}
-
-.recipe-card:active {
-  transform: rotateY(180deg) scale(1.05);
-}
-
-.card-front, .card-back {
-  position: absolute;
-  height: inherit;
-  width: inherit;
-  backface-visibility: hidden;
-  background-size: cover;
-}
-
-.card-front {
-  transition-duration: 1s;
-}
-
-.card-back {
-  transform: rotateY(180deg);
-  display: flex; 
-} */
-
-/*
-.recipe-card-front .recipe-img {
-  opacity: 0.5;
-} */

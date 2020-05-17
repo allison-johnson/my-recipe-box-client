@@ -7,9 +7,6 @@ import RecipeCards from '../components/recipeCards'
 class RecipesContainer extends Component {
   
   render() {
-    // console.log("In recipesContainer, viewingRecipes of: ", this.props.viewingRecipesOf)
-    // console.log("In recipesContainer, userId: ", this.props.userId)
-
     return (
       <div className="recipe-box-container">
       { this.props.loggedIn ?
@@ -20,8 +17,15 @@ class RecipesContainer extends Component {
           </div>
           : 
           <div className="app-info" style={{margin: '10px'}}>
-            <h1>My Recipe Box</h1>
-            Please log in or sign up to begin using My Recipe Box!
+            <h1>Welcome to <span className="title">My Recipe Box</span>!</h1>
+            Please log in or sign up to begin using My Recipe Box! With My Recipe Box, you can:<br /><br />
+            <ul>
+              <li>Create recipe cards with your favorite recipes from around the web</li>
+              <li>Categorize your recipes for easy access</li>
+              <li>Record any notes you'd like to remember when you make the recipe again!</li>
+              <li>See your friends' favorite recipes!</li>
+            </ul>
+            Encourage all of your buddies to sign up today, and happy cooking!
           </div>
       }
       </div>
