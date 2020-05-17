@@ -3,13 +3,12 @@
 
 [] How to get rid of warnings which stem from rendering lists from within bootstrap card components?
 
-[] Should filtering of recipes by user happen on back end or front end?
-    - Right now it's on the front end, which seems like a good choice because only one fetch request to the API is required to load all of the recipes when the app is first loaded, as opposed to making a fetch request each time a new filter is desired
-
 *TODO*
-[] Other recipe boxes shouldn't include current user 
+[] Alphabetize recipes on home page (and within filtered categories as well)
 
 [] When you click on another recipe box from 'Manage My Recipes', nothing happens
+
+[] Fix logout button 
 
 [x] Get rid of all warnings!
     [] Ask about warning stemming from NavBar...
