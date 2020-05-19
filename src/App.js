@@ -15,6 +15,7 @@ import Logout from './components/logout'
 import RecipesList from './components/recipesList'
 import Login from './components/login'
 import Signup from './components/signup'
+import UsersTest from './components/usersTest' //delete this later
 
 class App extends Component {
   constructor(props) {
@@ -66,7 +67,8 @@ class App extends Component {
           <Route exact path="/" render={(routerProps) => <RecipesContainer {...routerProps} recipes={this.filterRecipes()} loggedIn={this.props.loggedIn} userId={this.props.userId} viewingRecipesOf={this.props.viewingRecipesOf} changeViewingRecipesOf={this.props.changeViewingRecipesOf} users={this.props.users} />} />
           <Route exact path="/login" render={(routerProps) => <Login {...routerProps} login={this.props.login} />} />
           <Route exact path="/signup" render={(routerProps) => <Signup {...routerProps} signup={this.props.signup} />} />
-          <Route exact path="/logout" component={Logout} />
+          <Route exact path="/logout" component={Logout} /> 
+          <Route exact path="/recipes" render={(routerProps) => <RecipesContainer {...routerProps} recipes={this.filterRecipes()} loggedIn={this.props.loggedIn} userId={this.props.userId} viewingRecipesOf={this.props.viewingRecipesOf} changeViewingRecipesOf={this.props.changeViewingRecipesOf} users={this.props.users} />} />
         </Switch>
 
       </div>

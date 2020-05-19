@@ -3,7 +3,12 @@
 
 [] How to get rid of warnings which stem from rendering lists from within bootstrap card components?
 
+[] Nothing happens when you click on another recipe box from 'Manage My Recipes'
+
 *TODO*
+[] Add README's
+[] Create repo for back end
+
 [] Alphabetize recipes on home page (and within filtered categories as well)
 
 [] When you click on another recipe box from 'Manage My Recipes', nothing happens

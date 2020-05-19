@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import { LinkContainer } from 'react-router-bootstrap'
 
 class TopNavBar extends Component {
 
@@ -40,7 +41,10 @@ class TopNavBar extends Component {
           </NavDropdown>
 
           <NavDropdown title="Other Recipe Boxes" id="basic-nav-dropdown" onSelect={e => this.handleUserDropdownChange(e)}>
-            {this.props.users.filter(user => user.id !== this.props.userId).map(user => <NavDropdown.Item key={user.id} eventKey={user.id}>{user.first_name}</NavDropdown.Item>)}
+            {this.props.users.filter(user => user.id !== this.props.userId).map(user => {
+              return <LinkContainer to={`/recipes/users/${user.id}`}>
+                <NavDropdown.Item key={user.id} eventKey={user.id}>{user.first_name}</NavDropdown.Item>
+              </LinkContainer>})}
           </NavDropdown>
 
         </Nav>

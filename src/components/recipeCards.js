@@ -22,6 +22,7 @@ class RecipeCards extends Component {
   }
 
   render() {
+    console.log("props in recipeCards: ", this.props)
     return (
       <div className="recipe-cards">
       { parseInt(this.props.userId) === parseInt(this.props.viewingRecipesOf) ?
