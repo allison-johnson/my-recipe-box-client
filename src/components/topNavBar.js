@@ -6,9 +6,9 @@ import { LinkContainer } from 'react-router-bootstrap'
 
 class TopNavBar extends Component {
 
-  handleCategoryDropdownChange = (event) => {
-    this.props.changeCategory(event)
-  }
+  // handleCategoryDropdownChange = (event) => {
+  //   this.props.changeCategory(event)
+  // }
 
   handleUserDropdownChange = (event) => {
     console.log("event in handleUserDropdownChange: ", event)
@@ -36,7 +36,8 @@ class TopNavBar extends Component {
           <Nav.Link href="/" onClick={e => this.handleRedirectToHome}>Home</Nav.Link>
           <Nav.Link href="/manage-recipes">Manage My Recipes</Nav.Link>
 
-          <NavDropdown title="Categories" id="basic-nav-dropdown" onSelect={e => this.handleCategoryDropdownChange(e)}>
+          {/* onSelect={e => this.handleCategoryDropdownChange(e)} */}
+          <NavDropdown title="Categories" id="basic-nav-dropdown" >
             <NavDropdown.Item eventKey={0}>All</NavDropdown.Item>
             {this.props.categories.map(category => {
               return <LinkContainer to={`/recipes/users/${this.props.viewingRecipesOf}/categories/${category.id}`}>

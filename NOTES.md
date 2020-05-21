@@ -16,8 +16,6 @@
 *TODO*
 [] Add README's
 
-[] Add nested routes for categories
-
 [] Clean up Redux store
 
 [] Alphabetize recipes on home page (and within filtered categories as well)

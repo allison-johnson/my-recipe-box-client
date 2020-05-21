@@ -16,7 +16,6 @@ import RecipesList from './components/recipesList'
 import RecipeCards from './components/recipeCards'
 import Login from './components/login'
 import Signup from './components/signup'
-import UsersTest from './components/usersTest'
 
 class App extends Component {
   constructor(props) {
@@ -38,7 +37,6 @@ class App extends Component {
     this.props.fetchNotes()
     this.props.getCurrentUser()
     this.props.fetchUsers()
-    //this.props.changeViewingRecipesOf(this.props.userId)
   }//componentDidMount 
 
   filterRecipes = () => {
@@ -50,11 +48,11 @@ class App extends Component {
   }
 
   render() {
-    //console.log("props in App: ", this.props)
+    console.log("props in App: ", this.props)
     return (
       <div className="App">
-
-        <TopNavBar categories={this.props.categories} changeCategory={this.props.changeSelectedCategory} users={this.props.users} loggedIn={this.props.loggedIn} userEmail={this.props.userEmail} userId={this.props.userId} toggle={this.toggleShowRecipeForm} changeViewingRecipesOf={this.props.changeViewingRecipesOf} viewingRecipesOf={this.props.viewingRecipesOf} />
+        {/* changeCategory={this.props.changeSelectedCategory}  */}
+        <TopNavBar categories={this.props.categories} users={this.props.users} loggedIn={this.props.loggedIn} userEmail={this.props.userEmail} userId={this.props.userId} toggle={this.toggleShowRecipeForm} changeViewingRecipesOf={this.props.changeViewingRecipesOf} viewingRecipesOf={this.props.viewingRecipesOf} />
 
         {this.state.showRecipeForm ?
           <div className="recipe-form">
@@ -65,7 +63,6 @@ class App extends Component {
 
         <Switch >
           <Route exact path={`/recipes/users/:id`} render={(routerProps) => {
-            //const selectedUser = this.props.users.find(user => user.id === parseInt(routerProps.match.params.id))
             return <RecipeCards {...routerProps} 
                     recipes={this.props.recipes.filter(recipe => recipe.user_id === parseInt(routerProps.match.params.id))} 
                     loggedIn={this.props.loggedIn} 
@@ -121,7 +118,7 @@ const mapDispatchToProps = dispatch => {
     fetchRecipes: () => dispatch(fetchRecipes()),
     fetchNotes: () => dispatch(fetchNotes()),
     fetchUsers: () => dispatch(fetchUsers()),
-    changeSelectedCategory: (category_id) => dispatch(changeSelectedCategory(category_id)),
+    // changeSelectedCategory: (category_id) => dispatch(changeSelectedCategory(category_id)),
     changeViewingRecipesOf: (user_id) => dispatch(changeViewingRecipesOf(user_id)),
     addRecipe: (formData) => dispatch(addRecipe(formData)),
     login: (formData, history) => dispatch(login(formData, history)),
