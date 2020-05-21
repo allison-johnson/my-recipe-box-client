@@ -10,7 +10,7 @@ class RecipesContainer extends Component {
       <div className="recipe-box-container">
       { this.props.loggedIn ?
           <div className="recipe-box">  
-          <Switch>
+          {/* <Switch>
             <Route path={`/recipes/users/:id`} render={(routerProps) => {
               //const selectedUser = this.props.users.find(user => user.id === parseInt(routerProps.match.params.id))
               return <RecipeCards {...routerProps} 
@@ -21,7 +21,7 @@ class RecipesContainer extends Component {
                       changeViewingRecipesOf={this.props.changeViewingRecipesOf} 
                       users={this.props.users} />}} 
             />
-          </Switch>
+          </Switch> */}
             {/* <Switch>
               <Route exact path='/recipes/users/:user_id' render={(routerProps) => {
                 const selectedUser = this.props.users.find(user => user.id === parseInt(routerProps.match.params.user_id))
