@@ -64,7 +64,7 @@ class App extends Component {
         }
 
         <Switch >
-          <Route path={`/recipes/users/:id`} render={(routerProps) => {
+          <Route exact path={`/recipes/users/:id`} render={(routerProps) => {
             //const selectedUser = this.props.users.find(user => user.id === parseInt(routerProps.match.params.id))
             return <RecipeCards {...routerProps} 
                     recipes={this.props.recipes.filter(recipe => recipe.user_id === parseInt(routerProps.match.params.id))} 
@@ -75,9 +75,10 @@ class App extends Component {
                     users={this.props.users} />}} 
           />
 
-          <Route path={`/recipes/categories/:id`} render={(routerProps) => {
+          <Route exact path={`/recipes/users/:userId/categories/:categoryId`} render={(routerProps) => {
+            console.log(routerProps)
             return <RecipeCards {...routerProps}
-                    recipes={this.props.recipes.filter(recipe => recipe.category_id === parseInt(routerProps.match.params.id))}
+                    recipes={this.props.recipes.filter(recipe => (recipe.category_id === parseInt(routerProps.match.params.categoryId))).filter(recipe => recipe.user_id === parseInt(routerProps.match.params.userId))}
                     loggedIn={this.props.loggedIn}
                     userId={this.props.userId}
                     viewingRecipesOf={this.props.viewingRecipesOf}
