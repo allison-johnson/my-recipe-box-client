@@ -9,10 +9,10 @@ export const fetchCategories = () => {
     }//return
 }//fetchCategories
 
-export const changeSelectedCategory = (category_id) => {
-  return (dispatch) => {
-    dispatch({type: 'CHANGE_SELECTED_CATEGORY', category_id: category_id})
-  }//return
-}//changeSelectedCategory
+// export const changeSelectedCategory = (category_id) => {
+//   return (dispatch) => {
+//     dispatch({type: 'CHANGE_SELECTED_CATEGORY', category_id: category_id})
+//   }//return
+// }//changeSelectedCategory
   
   //export default fetchCategories
