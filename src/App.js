@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
 
 import { fetchRecipes, addRecipe } from './actions/recipeActions'
-import { fetchCategories, changeSelectedCategory } from './actions/categoryActions'
+import { fetchCategories } from './actions/categoryActions'
 import { fetchNotes } from './actions/noteActions'
 import { login, getCurrentUser, signup } from './actions/userActions'
 import { fetchUsers, changeViewingRecipesOf } from './actions/usersActions'
@@ -39,19 +39,10 @@ class App extends Component {
     this.props.fetchUsers()
   }//componentDidMount 
 
-  // filterRecipes = () => {
-  //   if (parseInt(this.props.selectedCategory) === 0) {
-  //     return this.props.recipes
-  //   } else {
-  //     return this.props.recipes.filter(recipe => recipe.category_id === parseInt(this.props.selectedCategory) && (recipe.user_id === parseInt(this.props.viewingRecipesOf)))
-  //   }
-  // }
-
   render() {
     console.log("props in App: ", this.props)
     return (
       <div className="App">
-        {/* changeCategory={this.props.changeSelectedCategory}  */}
         <TopNavBar categories={this.props.categories} users={this.props.users} loggedIn={this.props.loggedIn} userEmail={this.props.userEmail} userId={this.props.userId} toggle={this.toggleShowRecipeForm} changeViewingRecipesOf={this.props.changeViewingRecipesOf} viewingRecipesOf={this.props.viewingRecipesOf} />
 
         {this.state.showRecipeForm ?
@@ -121,7 +112,6 @@ const mapStateToProps = state => {
     categories: state.categoriesReducer.categories,
     users: state.usersReducer.users,
     categoriesLoading: state.categoriesReducer.loading,
-    selectedCategory: state.categoriesReducer.selectedCategory,
     notes: state.notesReducer.notes,
     loggedIn: state.currentUser.logged_in,
     userEmail: state.currentUser.logged_in ? state.currentUser.current_user.email : '',
@@ -136,7 +126,6 @@ const mapDispatchToProps = dispatch => {
     fetchRecipes: () => dispatch(fetchRecipes()),
     fetchNotes: () => dispatch(fetchNotes()),
     fetchUsers: () => dispatch(fetchUsers()),
-    // changeSelectedCategory: (category_id) => dispatch(changeSelectedCategory(category_id)),
     changeViewingRecipesOf: (user_id) => dispatch(changeViewingRecipesOf(user_id)),
     addRecipe: (formData) => dispatch(addRecipe(formData)),
     login: (formData, history) => dispatch(login(formData, history)),

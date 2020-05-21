@@ -1,5 +1,3 @@
-//Include switches for all action types
-// , selectedCategory: 0
 const categoriesReducer = (state = {categories: [], loading: false}, action) => {
     switch(action.type) {
       case 'LOADING_CATEGORIES':
@@ -17,14 +15,6 @@ const categoriesReducer = (state = {categories: [], loading: false}, action) => 
           loading: false,
           selectedCategory: state.selectedCategory
         }
-      
-      // case 'CHANGE_SELECTED_CATEGORY':
-      //   return {
-      //     ...state,
-      //     categories: [...state.categories],
-      //     loading: false,
-      //     selectedCategory: action.category_id
-      //   }
       
       default:
         return state
