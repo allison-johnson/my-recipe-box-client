@@ -3,15 +3,20 @@
 
 [] How to get rid of warnings which stem from rendering lists from within bootstrap card components?
 
-[] Nothing happens when you click on another recipe box from 'Manage My Recipes'
+[] Nested routing for viewing another user's recipes:
+    [] Should not be happening at the level of App, but that's the only place the Route seems to catch!
+    [] Problem with that is that someone can access another user's recipes by typing in the URL directly, even if they're not logged in
+    [] Should I be able to delete all references of the "selectedUser" from the Redux store now?
+    
 
 *TODO*
 [] Add README's
-[] Create repo for back end
+
+[] Add nested routes for categories
+
+[] Clean up Redux store
 
 [] Alphabetize recipes on home page (and within filtered categories as well)
-
-[] When you click on another recipe box from 'Manage My Recipes', nothing happens
 
 [] Fix logout button 
 
