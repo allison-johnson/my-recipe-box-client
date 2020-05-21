@@ -7,6 +7,8 @@
     [] Should not be happening at the level of App, but that's the only place the Route seems to catch!
     [] Problem with that is that someone can access another user's recipes by typing in the URL directly, even if they're not logged in
     [] Should I be able to delete all references of the "selectedUser" from the Redux store now?
+    [] Same for categories ... it shouldn't be a top level route!
+        [] It should actually be even FURTHER nested under RecipeCards, because ideally: /recipes/users/2/categories/1
     
 
 *TODO*

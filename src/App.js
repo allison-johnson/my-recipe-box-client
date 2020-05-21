@@ -16,6 +16,7 @@ import RecipesList from './components/recipesList'
 import RecipeCards from './components/recipeCards'
 import Login from './components/login'
 import Signup from './components/signup'
+import UsersTest from './components/usersTest'
 
 class App extends Component {
   constructor(props) {
@@ -64,15 +65,26 @@ class App extends Component {
 
         <Switch >
           <Route path={`/recipes/users/:id`} render={(routerProps) => {
-              //const selectedUser = this.props.users.find(user => user.id === parseInt(routerProps.match.params.id))
-              return <RecipeCards {...routerProps} 
-                      recipes={this.props.recipes.filter(recipe => recipe.user_id === parseInt(routerProps.match.params.id))} 
-                      loggedIn={this.props.loggedIn} 
-                      userId={this.props.userId} 
-                      viewingRecipesOf={parseInt(routerProps.match.params.id)}
-                      changeViewingRecipesOf={this.props.changeViewingRecipesOf} 
-                      users={this.props.users} />}} 
+            //const selectedUser = this.props.users.find(user => user.id === parseInt(routerProps.match.params.id))
+            return <RecipeCards {...routerProps} 
+                    recipes={this.props.recipes.filter(recipe => recipe.user_id === parseInt(routerProps.match.params.id))} 
+                    loggedIn={this.props.loggedIn} 
+                    userId={this.props.userId} 
+                    viewingRecipesOf={parseInt(routerProps.match.params.id)}
+                    changeViewingRecipesOf={this.props.changeViewingRecipesOf} 
+                    users={this.props.users} />}} 
           />
+
+          <Route path={`/recipes/categories/:id`} render={(routerProps) => {
+            return <RecipeCards {...routerProps}
+                    recipes={this.props.recipes.filter(recipe => recipe.category_id === parseInt(routerProps.match.params.id))}
+                    loggedIn={this.props.loggedIn}
+                    userId={this.props.userId}
+                    viewingRecipesOf={this.props.viewingRecipesOf}
+                    changeViewingRecipesOf={this.props.changeViewingRecipesOf}
+                    users={this.props.users} />}}
+          />
+
           <Route exact path="/manage-recipes" render={(routerProps) => <RecipesList {...routerProps} recipes={this.props.recipes} notes={this.props.notes} loggedIn={this.props.loggedIn} userId={this.props.userId} />} />
           <Route exact path="/" render={(routerProps) => <RecipesContainer {...routerProps} recipes={this.filterRecipes()} loggedIn={this.props.loggedIn} userId={this.props.userId} viewingRecipesOf={this.props.viewingRecipesOf} changeViewingRecipesOf={this.props.changeViewingRecipesOf} users={this.props.users} />} />
           <Route exact path="/login" render={(routerProps) => <Login {...routerProps} login={this.props.login} />} />
