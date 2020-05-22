@@ -33,7 +33,7 @@ class TopNavBar extends Component {
             Welcome {this.props.userEmail}
           </Navbar.Text>
           <Nav.Link href="/logout">Log Out</Nav.Link>
-          <Nav.Link href="/" onClick={e => this.handleRedirectToHome}>Home</Nav.Link>
+          <Nav.Link href="/recipes" onClick={e => this.handleRedirectToHome}>Home</Nav.Link>
           <Nav.Link href="/manage-recipes">Manage My Recipes</Nav.Link>
 
           <NavDropdown title="Categories" id="basic-nav-dropdown" >

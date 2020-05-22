@@ -3,13 +3,12 @@
 
 [] How to get rid of warnings which stem from rendering lists from within bootstrap card components?
 
-[] Nested routing for viewing another user's recipes:
-    [] Should not be happening at the level of App, but that's the only place the Route seems to catch!
-    [] *Problem with that is that someone can access another user's recipes by typing in the URL directly, even if they're not logged in* --> this is why routes should be nested in RecipesContainer, which checks whether the user is logged in!
-    [] Should I be able to delete all references of the "selectedUser" from the Redux store now?
-
 [] Same for categories ... it shouldn't be a top level route!
     [] It should actually be even FURTHER nested under RecipeCards, because ideally: /recipes/users/2/categories/1
+
+[] Set different default routes for logged in and logged out (i.e., welcomeLoggedOut and welcomeLoggedIn)
+
+[] Too many props getting passed down from App? Clean that up ... props should only get passed down 1-2 levels!
     
 
 *TODO*
@@ -23,12 +22,11 @@
 
 [] Fix logout button 
 
-[x] Get rid of all warnings!
-    [] Ask about warning stemming from NavBar...
-
 [] Spruce up app-info class in recipesContainer
     [x] Information about what you can do with the app
     [] Instructions for using recipe box (including screen shots or a short video?)
+
+[] Fix filenames to match component names
 
 *CLEAN UP CODE*
 [] Presentational/container/stateless components?

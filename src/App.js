@@ -81,15 +81,6 @@ class App extends Component {
         }
 
         <Switch >
-          {/* <Route exact path={`/recipes/users/:id`} render={(routerProps) => {
-            return <RecipeCards {...routerProps} 
-                    recipes={this.props.recipes.filter(recipe => recipe.user_id === parseInt(routerProps.match.params.id))} 
-                    loggedIn={this.props.loggedIn} 
-                    userId={this.props.userId} 
-                    viewingRecipesOf={parseInt(routerProps.match.params.id)}
-                    changeViewingRecipesOf={this.props.changeViewingRecipesOf} 
-                    users={this.props.users} />}} 
-          /> */}
 
           <Route exact path={`/recipes/users/:userId/categories/:categoryId`} render={(routerProps) => {
             return <RecipeCards {...routerProps}
@@ -124,6 +115,7 @@ class App extends Component {
           <Route exact path="/manage-recipes" render={(routerProps) => <RecipesList {...routerProps} recipes={this.props.recipes} notes={this.props.notes} loggedIn={this.props.loggedIn} userId={this.props.userId} />} />
           
           <Route exact path="/logout" component={Logout} /> 
+          <Route component={Welcome} />
         </Switch>
 
       </div>
