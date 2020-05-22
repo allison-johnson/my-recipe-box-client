@@ -20,6 +20,16 @@ class RecipesContainer extends Component {
                       users={this.props.users} />}} 
             />
 
+            <Route exact path={`/recipes/users/:userId/categories/:categoryId`} render={(routerProps) => {
+              return <RecipeCards {...routerProps}
+                      recipes={this.props.allRecipes.filter(recipe => (recipe.category_id === parseInt(routerProps.match.params.categoryId))).filter(recipe => recipe.user_id === parseInt(routerProps.match.params.userId))}
+                      loggedIn={this.props.loggedIn}
+                      userId={this.props.userId}
+                      viewingRecipesOf={this.props.viewingRecipesOf}
+                      changeViewingRecipesOf={this.props.changeViewingRecipesOf}
+                      users={this.props.users} />}}
+            />
+
             {/* Takes care of / and /recipes routes */}
             <Route path={`/`} render={(routerProps) => {
               return <RecipeCards {...routerProps} 

@@ -1,24 +1,22 @@
-*QUESTIONS*
+*TODO*
 [] How to eliminate the need for an "extra" form in order to logout?
 
 [] How to get rid of warnings which stem from rendering lists from within bootstrap card components?
 
-[] Same for categories ... it shouldn't be a top level route!
-    [] It should actually be even FURTHER nested under RecipeCards, because ideally: /recipes/users/2/categories/1
-
 [] Set different default routes for logged in and logged out (i.e., welcomeLoggedOut and welcomeLoggedIn)
 
 [] Too many props getting passed down from App? Clean that up ... props should only get passed down 1-2 levels!
-    
+    - Maybe App doesn't even need to get recipes from the store since RecipesContainer is only using allRecipes, which it grabbed from the store itself?
 
-*TODO*
+[] Combine '/' and '/recipes' into one path in App, since they do the same thing? (i.e., path='/')
+    
 [] Add README's!!!
 
 [] Clean up Redux store (viewingRecipesOf/changeViewingRecipesOf/selectedUser)
 
 [] Alphabetize recipes on home page (and within filtered categories as well)
 
-[] Work on searching
+[] Work on searching (and maybe sorting?)
 
 [] Fix logout button 
 
