@@ -16,18 +16,26 @@ import RecipesList from './components/recipesList'
 import RecipeCards from './components/recipeCards'
 import Login from './components/login'
 import Signup from './components/signup'
+import SearchForm from './components/searchForm'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       showRecipeForm: false,
+      showSearchForm: false
     }
   }
 
   toggleShowRecipeForm = () => {
     this.setState({
       showRecipeForm: !this.state.showRecipeForm 
+    })
+  }
+
+  toggleSearchForm = () => {
+    this.setState({
+      showSearchForm: !this.state.showSearchForm
     })
   }
 
@@ -40,14 +48,21 @@ class App extends Component {
   }//componentDidMount 
 
   render() {
-    console.log("props in App: ", this.props)
+    console.log("state in App: ", this.state)
     return (
       <div className="App">
-        <TopNavBar categories={this.props.categories} users={this.props.users} loggedIn={this.props.loggedIn} userEmail={this.props.userEmail} userId={this.props.userId} toggle={this.toggleShowRecipeForm} changeViewingRecipesOf={this.props.changeViewingRecipesOf} viewingRecipesOf={this.props.viewingRecipesOf} />
+        <TopNavBar categories={this.props.categories} users={this.props.users} loggedIn={this.props.loggedIn} userEmail={this.props.userEmail} userId={this.props.userId} toggleNewRecipeForm={this.toggleShowRecipeForm} toggleSearchForm={this.toggleSearchForm} changeViewingRecipesOf={this.props.changeViewingRecipesOf} viewingRecipesOf={this.props.viewingRecipesOf} />
 
         {this.state.showRecipeForm ?
           <div className="recipe-form">
             <RecipeForm addRecipe={this.props.addRecipe} categories={this.props.categories} userId={this.props.userId} />
+          </div>
+          : null
+        }
+
+        {this.state.showSearchForm ?
+          <div className="search-form">
+            <SearchForm loggedIn={this.props.loggedIn} userId={this.props.userId} viewingRecipesOf={this.props.viewingRecipesOf} changeViewingRecipesOf={this.props.changeViewingRecipesOf} users={this.props.users} />
           </div>
           : null
         }

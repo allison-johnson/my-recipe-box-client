@@ -19,6 +19,8 @@
 
 [] Alphabetize recipes on home page (and within filtered categories as well)
 
+[] Work on searching
+
 [] Fix logout button 
 
 [x] Get rid of all warnings!

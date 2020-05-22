@@ -24,6 +24,10 @@ code {
   font-family: 'Pacifico', cursive; 
 }
 
+.search-form {
+  margin: 10px
+}
+
 h1 {
   font-family: 'Roboto Condensed', sans-serif; 
   font-weight: 700;

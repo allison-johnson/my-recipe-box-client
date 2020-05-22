@@ -15,8 +15,12 @@ class TopNavBar extends Component {
     this.props.changeViewingRecipesOf(this.props.userId)
   }
 
-  toggleForm = (e) => {
-    this.props.toggle()
+  toggleNewRecipeForm = (e) => {
+    this.props.toggleNewRecipeForm()
+  }
+
+  toggleSearchForm = (e) => {
+    this.props.toggleSearchForm()
   }
 
   render() {
@@ -49,8 +53,12 @@ class TopNavBar extends Component {
 
         </Nav>
         <Form inline>
-          <Button variant="outline-success" onClick={e => this.toggleForm(e)}>Add Recipe to Box</Button>
+          <Button variant="outline-success" onClick={e => this.toggleNewRecipeForm(e)}>Add Recipe to Box</Button>
         </Form>
+
+        {/* <Form inline>
+          <Button variant="outline-success" onClick={e => this.toggleSearchForm(e)}>Search Recipes</Button>
+        </Form> */}
       </Navbar>
       :
       <Navbar bg="light">
