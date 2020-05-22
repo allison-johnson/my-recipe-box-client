@@ -17,6 +17,7 @@ import RecipeCards from './components/recipeCards'
 import Login from './components/login'
 import Signup from './components/signup'
 import SearchForm from './components/searchForm'
+import Welcome from './components/welcome'
 
 class App extends Component {
   constructor(props) {
@@ -49,6 +50,18 @@ class App extends Component {
 
   render() {
     console.log("state in App: ", this.state)
+    if (!this.props.loggedIn) {
+      return (
+        <React.Fragment>
+          <TopNavBar categories={this.props.categories} users={this.props.users} loggedIn={this.props.loggedIn} userEmail={this.props.userEmail} userId={this.props.userId} toggleNewRecipeForm={this.toggleShowRecipeForm} toggleSearchForm={this.toggleSearchForm} changeViewingRecipesOf={this.props.changeViewingRecipesOf} viewingRecipesOf={this.props.viewingRecipesOf} />
+          <Switch>
+            <Route exact path="/login" render={(routerProps) => <Login {...routerProps} login={this.props.login} />} />
+            <Route exact path="/signup" render={(routerProps) => <Signup {...routerProps} signup={this.props.signup} />} />
+            <Route component={Welcome} />
+          </Switch>
+        </React.Fragment>
+      )
+    }
     return (
       <div className="App">
         <TopNavBar categories={this.props.categories} users={this.props.users} loggedIn={this.props.loggedIn} userEmail={this.props.userEmail} userId={this.props.userId} toggleNewRecipeForm={this.toggleShowRecipeForm} toggleSearchForm={this.toggleSearchForm} changeViewingRecipesOf={this.props.changeViewingRecipesOf} viewingRecipesOf={this.props.viewingRecipesOf} />
@@ -68,7 +81,7 @@ class App extends Component {
         }
 
         <Switch >
-          <Route exact path={`/recipes/users/:id`} render={(routerProps) => {
+          {/* <Route exact path={`/recipes/users/:id`} render={(routerProps) => {
             return <RecipeCards {...routerProps} 
                     recipes={this.props.recipes.filter(recipe => recipe.user_id === parseInt(routerProps.match.params.id))} 
                     loggedIn={this.props.loggedIn} 
@@ -76,7 +89,7 @@ class App extends Component {
                     viewingRecipesOf={parseInt(routerProps.match.params.id)}
                     changeViewingRecipesOf={this.props.changeViewingRecipesOf} 
                     users={this.props.users} />}} 
-          />
+          /> */}
 
           <Route exact path={`/recipes/users/:userId/categories/:categoryId`} render={(routerProps) => {
             return <RecipeCards {...routerProps}
@@ -88,7 +101,7 @@ class App extends Component {
                     users={this.props.users} />}}
           />
 
-          <Route exact path="/recipes" render={(routerProps) => {
+          <Route path="/recipes" render={(routerProps) => {
             return <RecipesContainer {...routerProps} 
                     recipes={this.props.recipes.filter(recipe => recipe.user_id === this.props.userId)} 
                     loggedIn={this.props.loggedIn} 
@@ -110,8 +123,6 @@ class App extends Component {
           
           <Route exact path="/manage-recipes" render={(routerProps) => <RecipesList {...routerProps} recipes={this.props.recipes} notes={this.props.notes} loggedIn={this.props.loggedIn} userId={this.props.userId} />} />
           
-          <Route exact path="/login" render={(routerProps) => <Login {...routerProps} login={this.props.login} />} />
-          <Route exact path="/signup" render={(routerProps) => <Signup {...routerProps} signup={this.props.signup} />} />
           <Route exact path="/logout" component={Logout} /> 
         </Switch>
 
