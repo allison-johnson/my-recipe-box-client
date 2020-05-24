@@ -13,7 +13,6 @@ class RecipesContainer extends Component {
             <Route exact path={`/recipes/users/:id`} render={(routerProps) => {
               return <RecipeCards {...routerProps} 
                       recipes={this.props.allRecipes.filter(recipe => recipe.user_id === parseInt(routerProps.match.params.id))} 
-                      loggedIn={this.props.loggedIn} 
                       userId={this.props.userId} 
                       viewingRecipesOf={parseInt(routerProps.match.params.id)}
                       changeViewingRecipesOf={this.props.changeViewingRecipesOf} 
@@ -23,7 +22,6 @@ class RecipesContainer extends Component {
             <Route exact path={`/recipes/users/:userId/categories/:categoryId`} render={(routerProps) => {
               return <RecipeCards {...routerProps}
                       recipes={this.props.allRecipes.filter(recipe => (recipe.category_id === parseInt(routerProps.match.params.categoryId))).filter(recipe => recipe.user_id === parseInt(routerProps.match.params.userId))}
-                      loggedIn={this.props.loggedIn}
                       userId={this.props.userId}
                       viewingRecipesOf={this.props.viewingRecipesOf}
                       changeViewingRecipesOf={this.props.changeViewingRecipesOf}
@@ -34,7 +32,6 @@ class RecipesContainer extends Component {
             <Route path={`/`} render={(routerProps) => {
               return <RecipeCards {...routerProps} 
                       recipes={this.props.allRecipes.filter(recipe => recipe.user_id === this.props.userId)} 
-                      loggedIn={this.props.loggedIn} 
                       userId={this.props.userId} 
                       viewingRecipesOf={parseInt(this.props.userId)}
                       changeViewingRecipesOf={this.props.changeViewingRecipesOf} 

@@ -1,23 +1,24 @@
 *TODO*
-[] How to eliminate the need for an "extra" form in order to logout?
-
-[] How to get rid of warnings which stem from rendering lists from within bootstrap card components?
-
-[] Set different default routes for logged in and logged out (i.e., welcomeLoggedOut and welcomeLoggedIn)
-    [] Instructions for using recipe box (including screen shots or a short video?)
-
 [] Too many props getting passed down from App? Clean that up ... props should only get passed down 1-2 levels!
     - Maybe App doesn't even need to get recipes from the store since RecipesContainer is only using allRecipes, which it grabbed from the store itself?
-    
-[] Add README's!!!
 
 [] Clean up Redux store (viewingRecipesOf/changeViewingRecipesOf/selectedUser)
 
-[] Alphabetize recipes on home page (and within filtered categories as well)
+[] Instructions for using recipe box (including screen shots or a short video?) in welcome component
 
-[] Work on searching (and maybe sorting?)
+[] Add README's!!!
 
 [] Fix filenames to match component names
+
+[] Work on searching 
+    [] Include route for searching
+
+[] Alphabetize recipes on home page (and within filtered categories as well)
+
+*ANNOYING THINGS*
+[] How to eliminate the need for an "extra" form in order to logout?
+
+[] How to get rid of warnings which stem from rendering lists from within bootstrap card components?
 
 *CLEAN UP CODE*
 [] Presentational/container/stateless components?
