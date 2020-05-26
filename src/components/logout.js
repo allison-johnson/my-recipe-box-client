@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { logout } from '../actions/userActions'
+import { logout } from '../actions/UserActions'
 import { withRouter } from 'react-router-dom'
 
 const Logout = ({history, logout}) => {

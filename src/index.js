@@ -20,8 +20,6 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <App />
-      {/* <Route exact path="/home" component={App} />
-      <Route exact path="/manage-recipes" component={RecipesList} /> */}
     </Router>
   </Provider>,
   document.getElementById('root')

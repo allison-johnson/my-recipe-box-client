@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import RecipeCard from '../components/recipeCard'
+import RecipeCard from './RecipeCard'
 import CardDeck from 'react-bootstrap/CardDeck'
 
-//Shouldn't need logic; give me a bunch of recipes and I'll render them
 class RecipeCards extends Component {
   renderAllCards() {
     return this.props.recipes.filter(recipe => recipe.user_id === parseInt(this.props.viewingRecipesOf)).map((recipe, idx) => { return(

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { deleteRecipe } from '../actions/recipeActions'
-import { deleteNote } from '../actions/noteActions'
-import RecipeControls from './recipeControls'
-import NotesList from './notesList'
+import { deleteRecipe } from '../actions/RecipeActions'
+import { deleteNote } from '../actions/NoteActions'
+import RecipeControls from './RecipeControls'
+import NotesList from './NotesList'
 
 class RecipesList extends Component {
   handleNotesClick = (e) => {

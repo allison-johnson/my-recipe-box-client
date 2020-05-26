@@ -1,4 +1,4 @@
-const currentUser = (state = {current_user: {}, logged_in: false}, action) => {
+const currentUserReducer = (state = {current_user: {}, logged_in: false}, action) => {
   switch (action.type) {
     case 'SET_CURRENT_USER':
       return action.user 
@@ -11,4 +11,4 @@ const currentUser = (state = {current_user: {}, logged_in: false}, action) => {
   }
 }
 
-export default currentUser 
+export default currentUserReducer 

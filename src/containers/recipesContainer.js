@@ -1,7 +1,7 @@
 import React, { Component} from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
-import RecipeCards from '../components/recipeCards'
+import RecipeCards from '../components/RecipeCards'
 
 class RecipesContainer extends Component {
   render() {

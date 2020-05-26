@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { FormControl } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import RecipeCards from './recipeCards'
+import RecipeCards from './RecipeCards'
 
 export class SearchForm extends Component {
   constructor(props) {

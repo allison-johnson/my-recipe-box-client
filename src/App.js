@@ -2,21 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
 
-import { fetchRecipes, addRecipe } from './actions/recipeActions'
-import { fetchCategories } from './actions/categoryActions'
-import { fetchNotes } from './actions/noteActions'
-import { login, getCurrentUser, signup } from './actions/userActions'
-import { fetchUsers, changeSelectedUser } from './actions/usersActions'
+import { fetchRecipes, addRecipe } from './actions/RecipeActions'
+import { fetchCategories } from './actions/CategoryActions'
+import { fetchNotes } from './actions/NoteActions'
+import { login, getCurrentUser, signup } from './actions/UserActions'
+import { fetchUsers, changeSelectedUser } from './actions/UsersActions'
 
-import RecipesContainer from './containers/recipesContainer'
-import RecipeForm from './components/recipeForm'
-import TopNavBar from './components/topNavBar'
-import Logout from './components/logout'
-import RecipesList from './components/recipesList'
-import Login from './components/login'
-import Signup from './components/signup'
-import SearchForm from './components/searchForm'
-import Welcome from './components/welcome'
+import RecipesContainer from './containers/RecipesContainer'
+import RecipeForm from './components/RecipeForm'
+import TopNavBar from './components/TopNavBar'
+import Logout from './components/Logout'
+import RecipesList from './components/RecipesList'
+import Login from './components/Login'
+import Signup from './components/Signup'
+import SearchForm from './components/SearchForm'
+import Welcome from './components/Welcome'
 
 class App extends Component {
   constructor(props) {
@@ -115,9 +115,9 @@ const mapStateToProps = state => {
     users: state.usersReducer.users,
     categoriesLoading: state.categoriesReducer.loading,
     notes: state.notesReducer.notes,
-    loggedIn: state.currentUser.logged_in,
-    userEmail: state.currentUser.logged_in ? state.currentUser.current_user.email : '',
-    userId: state.currentUser.logged_in ? state.currentUser.current_user.id : 0,
+    loggedIn: state.currentUserReducer.logged_in,
+    userEmail: state.currentUserReducer.logged_in ? state.currentUserReducer.current_user.email : '',
+    userId: state.currentUserReducer.logged_in ? state.currentUserReducer.current_user.id : 0,
     selectedUser: state.usersReducer.selectedUser
   }
 }

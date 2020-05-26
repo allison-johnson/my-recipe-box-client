@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-//import { connect } from 'react-redux'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { FormControl } from 'react-bootstrap'
-//import { updateLoginForm } from '../actions/loginForm.js'
-//import { login } from '../actions/currentUser.js'
 
 export class Login extends Component {
   constructor() {

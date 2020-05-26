@@ -1,9 +1,4 @@
 *TODO*
-[] Too many props getting passed down from App? Clean that up ... props should only get passed down 1-2 levels!
-    - Maybe App doesn't even need to get recipes from the store since RecipesContainer is only using allRecipes, which it grabbed from the store itself?
-
-[] Clean up Redux store (viewingRecipesOf/changeViewingRecipesOf/selectedUser)
-
 [] Instructions for using recipe box (including screen shots or a short video?) in welcome component
 
 [] Add README's!!!
@@ -14,6 +9,8 @@
     [] Include route for searching
 
 [] Alphabetize recipes on home page (and within filtered categories as well)
+
+[] Maybe manage-recipes path should be a child of recipes path? That way, only recipesContainer would have to grab recipes from the Redux store?
 
 *ANNOYING THINGS*
 [] How to eliminate the need for an "extra" form in order to logout?

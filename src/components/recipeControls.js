@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button'
-import NotesList from './notesList'
+import NotesList from './NotesList'
 import { connect } from 'react-redux'
 
 class RecipeControls extends Component {
