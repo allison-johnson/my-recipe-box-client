@@ -23,7 +23,8 @@ class RecipesContainer extends Component {
               return <RecipeCards {...routerProps}
                       recipes={this.props.allRecipes.filter(recipe => (recipe.category_id === parseInt(routerProps.match.params.categoryId))).filter(recipe => recipe.user_id === parseInt(routerProps.match.params.userId))}
                       userId={this.props.userId}
-                      viewingRecipesOf={this.props.viewingRecipesOf}
+                      // viewingRecipesOf={this.props.viewingRecipesOf}
+                      viewingRecipesOf={parseInt(routerProps.match.params.userId)}
                       changeViewingRecipesOf={this.props.changeViewingRecipesOf}
                       users={this.props.users} />}}
             />

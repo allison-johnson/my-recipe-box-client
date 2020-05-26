@@ -10,7 +10,7 @@ export const fetchUsers = () => {
     }//return
 }//fetchUsers
 
-export const changeViewingRecipesOf = (user_id) => {
+export const changeSelectedUser = (user_id) => {
   return (dispatch) => {
     dispatch({type: 'CHANGE_SELECTED_USER', user_id: user_id})
   }//return

@@ -6,7 +6,7 @@ import { fetchRecipes, addRecipe } from './actions/recipeActions'
 import { fetchCategories } from './actions/categoryActions'
 import { fetchNotes } from './actions/noteActions'
 import { login, getCurrentUser, signup } from './actions/userActions'
-import { fetchUsers, changeViewingRecipesOf } from './actions/usersActions'
+import { fetchUsers, changeSelectedUser } from './actions/usersActions'
 
 import RecipesContainer from './containers/recipesContainer'
 import RecipeForm from './components/recipeForm'
@@ -63,7 +63,17 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <TopNavBar categories={this.props.categories} users={this.props.users} loggedIn={this.props.loggedIn} userEmail={this.props.userEmail} userId={this.props.userId} toggleNewRecipeForm={this.toggleShowRecipeForm} toggleSearchForm={this.toggleSearchForm} changeViewingRecipesOf={this.props.changeViewingRecipesOf} viewingRecipesOf={this.props.viewingRecipesOf} />
+
+        <TopNavBar categories={this.props.categories} 
+                   users={this.props.users} 
+                   loggedIn={this.props.loggedIn} 
+                   userEmail={this.props.userEmail} 
+                   userId={this.props.userId} 
+                   selectedUser={this.props.selectedUser} 
+                   changeSelectedUser={this.props.changeSelectedUser} 
+                   toggleNewRecipeForm={this.toggleShowRecipeForm} 
+                   toggleSearchForm={this.toggleSearchForm} 
+        />
 
         {this.state.showRecipeForm ?
           <div className="recipe-form">
@@ -72,6 +82,7 @@ class App extends Component {
           : null
         }
 
+        {/* Change from viewingRecipesOf to selectedUser */}
         {this.state.showSearchForm ?
           <div className="search-form">
             <SearchForm loggedIn={this.props.loggedIn} userId={this.props.userId} viewingRecipesOf={this.props.viewingRecipesOf} changeViewingRecipesOf={this.props.changeViewingRecipesOf} users={this.props.users} />
@@ -81,13 +92,13 @@ class App extends Component {
 
         <Switch >
           <Route exact path="/manage-recipes" render={(routerProps) => <RecipesList {...routerProps} recipes={this.props.recipes} notes={this.props.notes} loggedIn={this.props.loggedIn} userId={this.props.userId} />} />
+          
           <Route exact path="/logout" component={Logout} /> 
 
           {/* Takes care of '/' and '/recipes' paths */}
           <Route path="/" render={(routerProps) => {
             return <RecipesContainer {...routerProps} 
                     userId={this.props.userId} 
-                    viewingRecipesOf={this.props.viewingRecipesOf} 
                     users={this.props.users} />} }
           />
         </Switch>
@@ -99,6 +110,7 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     recipesLoading: state.recipesReducer.loading,
+    recipes: state.recipesReducer.recipes, //need these for manage-recipes path
     categories: state.categoriesReducer.categories,
     users: state.usersReducer.users,
     categoriesLoading: state.categoriesReducer.loading,
@@ -106,7 +118,7 @@ const mapStateToProps = state => {
     loggedIn: state.currentUser.logged_in,
     userEmail: state.currentUser.logged_in ? state.currentUser.current_user.email : '',
     userId: state.currentUser.logged_in ? state.currentUser.current_user.id : 0,
-    viewingRecipesOf: state.usersReducer.selectedUser
+    selectedUser: state.usersReducer.selectedUser
   }
 }
 
@@ -116,7 +128,7 @@ const mapDispatchToProps = dispatch => {
     fetchRecipes: () => dispatch(fetchRecipes()),
     fetchNotes: () => dispatch(fetchNotes()),
     fetchUsers: () => dispatch(fetchUsers()),
-    changeViewingRecipesOf: (user_id) => dispatch(changeViewingRecipesOf(user_id)),
+    changeSelectedUser: (user_id) => dispatch(changeSelectedUser(user_id)),
     addRecipe: (formData) => dispatch(addRecipe(formData)),
     login: (formData, history) => dispatch(login(formData, history)),
     getCurrentUser: () => dispatch(getCurrentUser()),
