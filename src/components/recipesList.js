@@ -5,9 +5,14 @@ import { deleteNote } from '../actions/NoteActions'
 import RecipeControls from './RecipeControls'
 import NotesList from './NotesList'
 
+/*
+  A container component generated using Redux connect for grabbing
+  deleteRecipe() and deleteNote() functionality from store.
+  Responsible for rendering an individual RecipeControls component
+  for each of the user's recipes.
+*/
 class RecipesList extends Component {
   handleNotesClick = (e) => {
-    console.log("inside handleNotesClick");
     return <NotesList notes={this.props.notes.filter(note => note.recipe_id === e.target.id)} />
   }
 

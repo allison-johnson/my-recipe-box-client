@@ -1,52 +1,44 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import { LinkContainer } from 'react-router-bootstrap'
 
-class TopNavBar extends Component {
+const TopNavBar = ({categories, users, loggedIn, userEmail, userId, selectedUser, changeSelectedUser, toggleNewRecipeForm, toggleSearchForm}) => {
 
-  handleUserDropdownChange = (e) => {
-    this.props.changeSelectedUser(e)
+  const handleUserDropdownChange = (e) => {
+    changeSelectedUser(e)
   }
 
-  handleRedirectToHome = (event) => {
-    this.props.changeViewingRecipesOf(this.props.userId)
+  const handleToggleNewRecipeForm = (e) => {
+    toggleNewRecipeForm()
   }
 
-  toggleNewRecipeForm = (e) => {
-    this.props.toggleNewRecipeForm()
-  }
+  // const handleToggleSearchForm = (e) => {
+  //   toggleSearchForm()
+  // }
 
-  toggleSearchForm = (e) => {
-    this.props.toggleSearchForm()
-  }
-
-  render() {
-
-    return (
-      this.props.loggedIn ?
+  return (
+    loggedIn ?
       <Navbar bg="light">
         <Nav className="mr-auto">
           <Navbar.Text className="welcome-text">
-            Welcome {this.props.userEmail}
+            Welcome {userEmail}
           </Navbar.Text>
           <Nav.Link href="/logout">Log Out</Nav.Link>
-          <Nav.Link href="/recipes" onClick={e => this.handleRedirectToHome}>Home</Nav.Link>
+          <Nav.Link href="/recipes">Home</Nav.Link>
           <Nav.Link href="/manage-recipes">Manage My Recipes</Nav.Link>
 
-          {/* Problem is here because this.props.viewingRecipesOf is undefined now! */}
           <NavDropdown title="Categories" id="basic-nav-dropdown" >
-            <LinkContainer to={`/recipes/users/${this.props.selectedUser}`}><NavDropdown.Item eventKey={0}>All</NavDropdown.Item></LinkContainer>
-            {this.props.categories.map(category => {
-              return <LinkContainer to={`/recipes/users/${this.props.selectedUser}/categories/${category.id}`}>
+            <LinkContainer to={`/recipes/users/${selectedUser}`}><NavDropdown.Item eventKey={0}>All</NavDropdown.Item></LinkContainer>
+            {categories.map(category => {
+              return <LinkContainer to={`/recipes/users/${selectedUser}/categories/${category.id}`}>
                 <NavDropdown.Item key={category.id} eventKey={category.id}>{category.name}</NavDropdown.Item>
               </LinkContainer>})}
           </NavDropdown>
 
-          {/* onSelect={e => this.handleUserDropdownChange(e)} */}
-          <NavDropdown title="Other Recipe Boxes" id="basic-nav-dropdown" onSelect={e => this.handleUserDropdownChange(e)} >
-            {this.props.users.filter(user => user.id !== this.props.userId).map(user => {
+          <NavDropdown title="Other Recipe Boxes" id="basic-nav-dropdown" onSelect={e => handleUserDropdownChange(e)} >
+            {users.filter(user => user.id !== userId).map(user => {
               return <LinkContainer to={`/recipes/users/${user.id}`}>
                 <NavDropdown.Item key={user.id} eventKey={user.id}>{user.first_name}</NavDropdown.Item>
               </LinkContainer>})}
@@ -54,11 +46,11 @@ class TopNavBar extends Component {
 
         </Nav>
         <Form inline>
-          <Button variant="outline-success" onClick={e => this.toggleNewRecipeForm(e)}>Add Recipe to Box</Button>
+          <Button variant="outline-success" onClick={e => handleToggleNewRecipeForm(e)}>Add Recipe to Box</Button>
         </Form>
 
         {/* <Form inline>
-          <Button variant="outline-success" onClick={e => this.toggleSearchForm(e)}>Search Recipes</Button>
+          <Button variant="outline-success" onClick={e => this.handleToggleSearchForm(e)}>Search Recipes</Button>
         </Form> */}
       </Navbar>
       :
@@ -68,8 +60,7 @@ class TopNavBar extends Component {
         <Nav.Link href="/signup">Sign Up</Nav.Link>
       </Nav>
     </Navbar>
-    )
-  }
-}
+  )
+}//TopNavBar
 
 export default TopNavBar

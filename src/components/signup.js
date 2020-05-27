@@ -4,6 +4,10 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { FormControl } from 'react-bootstrap'
 
+/*
+  A container component responsible for processing signup
+  form; state used to generate a controlled form.
+*/
 class Signup extends Component {
   constructor(props){
     super(props)
