@@ -3,6 +3,10 @@ import { FormControl } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
+/*
+  A container component responsible for processing new
+  recipe form; state used to generate a controlled form.
+*/
 export class RecipeForm extends Component {
   constructor(props) {
     super(props)

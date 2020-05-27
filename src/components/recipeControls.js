@@ -3,6 +3,11 @@ import Button from 'react-bootstrap/Button'
 import NotesList from './NotesList'
 import { connect } from 'react-redux'
 
+/*
+  A container component generated using Redux connect to 
+  grab all recipe's notes from the store. Stqte controls whether
+  or not a recipe's notes are shown.
+*/
 class RecipeControls extends Component {
   constructor(props) {
     super(props)
@@ -22,7 +27,6 @@ class RecipeControls extends Component {
   }
 
   render() {
-    console.log("this.props.notes inside recipeControls render: ", this.props.notes)
     return (
       <div className="recipe">
         <li style={{padding: '5px'}}>{this.props.recipe.name}
@@ -38,7 +42,7 @@ class RecipeControls extends Component {
   }//return
 }//class
 
-//This should be the class that grabs the list of notes from the store to pass down to NotesList
+//This component grabs the list of recipe notes from the Redux store to pass down to NotesList
 const mapStateToProps = state => {
   return {
     notes: state.notesReducer.notes 

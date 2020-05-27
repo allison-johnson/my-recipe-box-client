@@ -3,6 +3,10 @@ import { FormControl } from 'react-bootstrap'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
+/*
+  A container component responsible for processing new
+  note form; state used to generate a controlled form.
+*/
 class NoteForm extends Component {
   constructor(props) {
     super(props)

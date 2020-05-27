@@ -1,13 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class RecipeNotes extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <ul>{this.props.notes.map(note => <li key={note.id}>{note.content}</li>)}</ul>
-      </React.Fragment>
-    )
-  }//render
-}//class 
+/*
+  A stateless, presentational component responsible
+  for displaying notes on a RecipeCard
+*/
+const RecipeNotes = ({notes}) => {
+  return (
+    <React.Fragment>
+      <ul>{notes.map(note => <li key={note.id}>{note.content}</li>)}</ul>
+    </React.Fragment>
+  )
+}//RecipeNotes
 
 export default RecipeNotes

@@ -2,8 +2,11 @@ import React from 'react'
 import RecipeCard from './RecipeCard'
 import CardDeck from 'react-bootstrap/CardDeck'
 
+/*
+  A stateless, presentational component concerned with laying 
+  out all RecipeCard's on the page
+*/
 const RecipeCards = ({recipes, userId, viewingRecipesOf, users}) => {
-
   const renderAllCards = () => {
     return recipes.filter(recipe => recipe.user_id === parseInt(viewingRecipesOf)).map((recipe, idx) => { return(
       <div key={idx} className="recipe-card">

@@ -3,6 +3,10 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { FormControl } from 'react-bootstrap'
 
+/*
+  A container component responsible for processing login
+  form; state used to generate a controlled form.
+*/
 export class Login extends Component {
   constructor() {
     super()
