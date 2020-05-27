@@ -3,8 +3,6 @@
 
 [] Add README's!!!
 
-[] Fix filenames to match component names
-
 [] Work on searching 
     [] Include route for searching
 

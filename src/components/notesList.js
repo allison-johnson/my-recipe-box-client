@@ -1,17 +1,25 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class NotesList extends Component {
-  handleClick = (e) => {
-    this.props.deleteNote(parseInt(e.target.id))
+const NotesList = ({notes, deleteNote}) => {
+  const handleClick = (e) => {
+    deleteNote(parseInt(e.target.id))
   }
 
-  render() {
-    return (
-      <React.Fragment>
-        {this.props.notes.map(note => <li key={note.id}>{note.content}<button id={note.id} className="delete-note-button" onClick={e => this.handleClick(e)}>DELETE</button></li>)}
-      </React.Fragment>
-    )
-  }
-}
+  return (
+    <React.Fragment>
+      {notes.map(note => 
+        <li key={note.id}>
+          {note.content}
+          <button id={note.id} 
+            className="delete-note-button" 
+            onClick={e => handleClick(e)}>
+              DELETE
+          </button>
+        </li>)
+      }
+    </React.Fragment>
+  );
+
+}//NotesList
 
 export default NotesList
