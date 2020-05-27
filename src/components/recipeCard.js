@@ -7,6 +7,11 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Popup from 'reactjs-popup'
 
+/*
+  This is a contianer component generated using Redux connect.
+  It is responsible for generating a single recipe card, notes and
+  the ability to add a new note.
+*/
 class RecipeCard extends Component {
   render() {
     return (
@@ -15,7 +20,7 @@ class RecipeCard extends Component {
         <div className="container">
           <Card.Img className="recipe-img" variant="top" src={this.props.recipe.img_url} alt={this.props.recipe.name} />
         </div>
-        <Card.Body className="card-front">
+        <Card.Body>
           <Card.Title className="recipe-title">{this.props.recipe.name}</Card.Title>
           <Card.Text className="recipe-notes">
             <RecipeNotes notes={this.props.notes.filter(note => note.recipe_id === this.props.recipe.id)} />

@@ -19,7 +19,6 @@ const NotesList = ({notes, deleteNote}) => {
       }
     </React.Fragment>
   );
-
 }//NotesList
 
 export default NotesList
