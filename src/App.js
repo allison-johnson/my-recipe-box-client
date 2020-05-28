@@ -18,6 +18,9 @@ import Signup from './components/Signup'
 import SearchForm from './components/SearchForm'
 import Welcome from './components/Welcome'
 
+/*
+  A top-level container component generated using Redux connect
+*/
 class App extends Component {
   constructor(props) {
     super(props)
@@ -48,7 +51,6 @@ class App extends Component {
   }//componentDidMount 
 
   render() {
-    console.log("state in App: ", this.state)
     if (!this.props.loggedIn) {
       return (
         <React.Fragment>

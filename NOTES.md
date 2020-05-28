@@ -1,5 +1,5 @@
 *TODO*
-[] Instructions for using recipe box (including screen shots or a short video?) in welcome component
+[] Host app!!!
 
 [] Add README's!!!
 
@@ -14,10 +14,6 @@
 [] How to eliminate the need for an "extra" form in order to logout?
 
 [] How to get rid of warnings which stem from rendering lists from within bootstrap card components?
-
-*CLEAN UP CODE*
-[] Presentational/container/stateless components?
-[] Rewrite stateless components as functional components
 
 *STRETCH GOALS*
 [] Can add another user's recipes to your own recipe box

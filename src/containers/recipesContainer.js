@@ -3,6 +3,12 @@ import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import RecipeCards from '../components/RecipeCards'
 
+/*
+  A container component generated using Redux connect for grabbing
+  allRecipes from the store. Responsible for rendering RecipeCards
+  component and passing down certain props depending on which URL
+  is matched inside of the <Switch>
+*/
 class RecipesContainer extends Component {
   render() {
     return (
