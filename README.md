@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The repo for the back end (API) can be found at https://github.com/allison-johnson/my-recipe-box-api.
 
 ## Recipe Box App
 - Create recipe cards for your favorite recipes from around the web, including an image and a link to the recipe page

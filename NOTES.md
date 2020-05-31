@@ -1,7 +1,7 @@
 *TODO*
-[] Host app!!!
+[] Repo for back end, with readme, linked to front end repo
 
-[] Add README's!!!
+[] Host app!!!
 
 [] Work on searching 
     [] Include route for searching
