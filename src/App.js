@@ -17,6 +17,7 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import SearchForm from './components/SearchForm'
 import Welcome from './components/Welcome'
+import Search from './components/Search'
 
 /*
   A top-level container component generated using Redux connect
@@ -96,6 +97,8 @@ class App extends Component {
           <Route exact path="/manage-recipes" render={(routerProps) => <RecipesList {...routerProps} recipes={this.props.recipes} notes={this.props.notes} loggedIn={this.props.loggedIn} userId={this.props.userId} />} />
           
           <Route exact path="/logout" component={Logout} /> 
+
+          <Route exact path="/search" render={(routerProps) => <Search {...routerProps} loggedIn={this.props.loggedIn} userId={this.props.userId} users={this.props.users} />} />
 
           {/* Takes care of '/' and '/recipes' paths */}
           <Route path="/" render={(routerProps) => {

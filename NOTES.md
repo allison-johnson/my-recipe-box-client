@@ -1,6 +1,4 @@
 *TODO*
-[] Repo for back end, with readme, linked to front end repo
-
 [] Host app!!!
 
 [] Work on searching 

@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import { FormControl } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import RecipeCards from './RecipeCards'
+import SearchResults from './SearchResults'
+// import RecipeCards from './RecipeCards'
 
 export class SearchForm extends Component {
   constructor(props) {
@@ -31,6 +32,10 @@ export class SearchForm extends Component {
     return this.props.recipes.filter(recipe => recipe.name.toLowerCase().includes(q))
   }
 
+  renderRecipeNames = () => {
+    this.state.filteredRecipes.map(recipe => <li>{recipe.title}</li>)
+  }
+
   render() {
     console.log("query: ", this.state.query)
     return (
@@ -40,7 +45,9 @@ export class SearchForm extends Component {
           <Button type="submit" variant="outline-success" style={{margin: '10px'}}>Search Recipes</Button>
         </Form> 
 
-        <RecipeCards recipes={this.state.filteredRecipes} userId={this.props.userId} viewingRecipesOf={this.props.viewingRecipesOf} changeViewingRecipesOf={this.props.changeViewingRecipesOf} loggedIn={this.props.loggedIn} />
+        <SearchResults recipes={this.state.filteredRecipes}/>
+        
+        {/* <RecipeCards users={this.props.users} recipes={this.state.filteredRecipes} userId={this.props.userId} viewingRecipesOf={this.props.viewingRecipesOf} changeViewingRecipesOf={this.props.changeViewingRecipesOf} loggedIn={this.props.loggedIn} /> */}
       </React.Fragment>
     )
   }
