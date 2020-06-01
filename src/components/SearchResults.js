@@ -8,8 +8,8 @@ class SearchResults extends Component {
         <ul>{this.props.recipes.map(recipe => {
             return (
               <li>
-                {recipe.name + " "}
-                ({this.props.users.find(user => user.id === recipe.user_id).first_name}'s recipe box)
+                <a href={recipe.url}>{recipe.name + " "}</a>
+                (from <a href={`/recipes/users/${recipe.user_id}`}>{this.props.users.find(user => user.id === recipe.user_id).first_name}'s recipe box)</a>
               </li>
             )}
           )}
