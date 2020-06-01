@@ -7,7 +7,6 @@ class Search extends Component {
   }
 
   render() {
-    console.log("Inside Search.js")
     return (
       <div>
         <SearchForm loggedIn={this.props.loggedIn} userId={this.props.userId} users={this.props.users} />

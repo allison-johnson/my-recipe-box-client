@@ -37,17 +37,14 @@ export class SearchForm extends Component {
   }
 
   render() {
-    console.log("query: ", this.state.query)
     return (
       <React.Fragment>
         <Form inline onSubmit={event => this.handleSubmit(event)} style={{margin: '10px'}}>
-          <FormControl type="text" name="query" placeholder="What are you looking for?" value={this.state.query} className="mr-sm-2" onChange={event => this.handleChange(event)} />
+          <FormControl type="text" name="query" placeholder="Enter a key word" value={this.state.query} className="mr-sm-2" onChange={event => this.handleChange(event)} />
           <Button type="submit" variant="outline-success" style={{margin: '10px'}}>Search Recipes</Button>
         </Form> 
 
-        <SearchResults recipes={this.state.filteredRecipes}/>
-        
-        {/* <RecipeCards users={this.props.users} recipes={this.state.filteredRecipes} userId={this.props.userId} viewingRecipesOf={this.props.viewingRecipesOf} changeViewingRecipesOf={this.props.changeViewingRecipesOf} loggedIn={this.props.loggedIn} /> */}
+        <SearchResults recipes={this.state.filteredRecipes} users={this.props.users}/>
       </React.Fragment>
     )
   }

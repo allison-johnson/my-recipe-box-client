@@ -4,7 +4,8 @@
 [] Work on searching 
     [x] Include route for searching
     [] Make search more functional (i.e., if 'lemon cake' is typed in)
-    [] Add search button to navbar that links to '/search' path
+    [x] Add search button to navbar that links to '/search' path
+    [] Add owner's name and link to recipe
 
 [] Alphabetize recipes on home page (and within filtered categories as well)
 
