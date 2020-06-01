@@ -28,6 +28,7 @@ const TopNavBar = ({categories, users, loggedIn, userEmail, userId, selectedUser
           <Nav.Link href="/logout">Log Out</Nav.Link>
           <Nav.Link href="/recipes">Home</Nav.Link>
           <Nav.Link href="/manage-recipes">Manage My Recipes</Nav.Link>
+          <Nav.Link href="/search">Search Recipes</Nav.Link>
 
           <NavDropdown title="Categories" id="basic-nav-dropdown" >
             <LinkContainer to={`/recipes/users/${selectedUser}`}><NavDropdown.Item eventKey={0}>All</NavDropdown.Item></LinkContainer>
