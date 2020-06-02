@@ -20,7 +20,9 @@ import Welcome from './components/Welcome'
 import Search from './components/Search'
 
 /*
-  A top-level container component generated using Redux connect
+  A top-level container component generated using Redux connect.
+  The parent component of our React app content, it contains all 
+  visible content of the app.
 */
 class App extends Component {
   constructor(props) {
@@ -43,6 +45,7 @@ class App extends Component {
     })
   }
 
+  //Gets called just after render
   componentDidMount() {
     this.props.fetchRecipes()
     this.props.fetchCategories()
@@ -141,4 +144,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
+// connect function is used to "connect" React part of application to the Redux store
+// Whatever we pass as arguments to connect is called EACH time there is a change in state
+// Whatever those functions RETURN get passed to the indicated component as props
 export default connect(mapStateToProps, mapDispatchToProps)(App);

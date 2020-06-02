@@ -6,6 +6,8 @@ import { addNote } from '../actions/NoteActions'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Popup from 'reactjs-popup'
+// import { FormControl } from 'react-bootstrap'
+import Form from 'react-bootstrap/Form'
 
 /*
   This is a contianer component generated using Redux connect.
@@ -13,6 +15,26 @@ import Popup from 'reactjs-popup'
   the ability to add a new note.
 */
 class RecipeCard extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      liked: false
+    }
+  }
+
+  handleCheckboxChange = (e) => {
+    const updatedLiked = !this.state.liked 
+    this.setState({
+      liked: updatedLiked 
+    })  
+    if (updatedLiked) {
+      this.props.addToLikedRecipes(this.props.recipe.id)
+    }
+    else {
+      this.props.removeFromLikedRecipes(this.props.recipe.id)
+    }
+  }
+
   render() {
     return (
       <div className="recipe-card">
@@ -33,7 +55,10 @@ class RecipeCard extends Component {
             <NoteForm recipe_id={this.props.recipe.id} addNote={this.props.addNote}/>
           </div>
           </Popup>
-          : null 
+          : 
+          <Form.Group>
+            <Form.Check type="checkbox" label="Like this recipe" onChange={this.handleCheckboxChange} />
+          </Form.Group>
         }
       </Card>
       </div>

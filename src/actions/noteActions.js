@@ -1,7 +1,9 @@
+const baseURL = "https://rails-recipe-box-backend.herokuapp.com/"
+
 export const fetchNotes = () => {
   return (dispatch) => {
     dispatch({ type: 'LOADING_NOTES'})
-    fetch('http://localhost:3001/notes').then(response => {
+    fetch(baseURL + 'notes').then(response => {
       return response.json()
     }).then(responseJSON => {
       dispatch({ type: 'ADD_NOTES', notes: responseJSON })
@@ -14,7 +16,7 @@ export const addNote = (noteData) => {
     const body = {
       note: noteData
     }
-    return fetch('http://localhost:3001/notes', {
+    return fetch(baseURL + 'notes', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -24,7 +26,7 @@ export const addNote = (noteData) => {
     }).then(response => {
       return response.json()
     }).then(responseJSON => {
-      console.log("responseJSON in notes: ", responseJSON)
+      // console.log("responseJSON in notes: ", responseJSON)
       if (responseJSON.errors) {
         let errorString = "";
         for (const key in responseJSON.errors) {
@@ -40,7 +42,7 @@ export const addNote = (noteData) => {
 
 export const deleteNote = (id) => {
   return (dispatch) => {
-    fetch(`http://localhost:3001/notes/${id}`, {
+    fetch(baseURL + `notes/${id}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',

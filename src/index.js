@@ -1,5 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+//This is where the action starts!
+
+import React from 'react';  //A library for putting components together
+import ReactDOM from 'react-dom'; //A library for communicating with the DOM
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -13,9 +15,13 @@ import { BrowserRouter as Router } from 'react-router-dom'
 // Importing the Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+// Configure Redux with Thunk, as well as Chrome dev tools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
 
+// Happens once, renders the ENTIRE React app into the div with the id of 'root'
+// We pass the store into the provider, which will allow us access to the store when
+// we connect our components
 ReactDOM.render(
   <Provider store={store}>
     <Router>

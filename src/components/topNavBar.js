@@ -14,10 +14,6 @@ const TopNavBar = ({categories, users, loggedIn, userEmail, userId, selectedUser
     toggleNewRecipeForm()
   }
 
-  // const handleToggleSearchForm = (e) => {
-  //   toggleSearchForm()
-  // }
-
   return (
     loggedIn ?
       <Navbar bg="light">

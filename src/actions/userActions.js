@@ -1,9 +1,11 @@
+const baseURL = "https://rails-recipe-box-backend.herokuapp.com/"
+
 //Actions related to user auth
 //Related reducer: currentUser.js
 export const signup = (credentials, history) => {
   console.log("credentials in signup: ", credentials)
   return (dispatch) => {
-    return fetch('http://localhost:3001/users', {
+    return fetch(baseURL + 'users', {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -31,7 +33,7 @@ export const signup = (credentials, history) => {
 
 export const login = (credentials, history) => {
   return (dispatch) => {
-    return fetch('http://localhost:3001/login', {
+    return fetch(baseURL + 'login', {
       method: 'POST',
       credentials: 'include', 
       headers: {
@@ -45,7 +47,6 @@ export const login = (credentials, history) => {
       if (responseJSON.error) {
         alert(responseJSON.error)
       } else {
-        //console.log("responseJSON in login: ", responseJSON)
         dispatch({ type: 'SET_CURRENT_USER', user: responseJSON })
         dispatch({ type: 'SET_SELECTED_USER', user: responseJSON })
         history.push('/') //also add 'history' to parameters, should get passed by login form on submit
@@ -56,7 +57,7 @@ export const login = (credentials, history) => {
 
 export const getCurrentUser = () => {
   return dispatch => {
-    return fetch('http://localhost:3001/get_current_user', {
+    return fetch(baseURL + 'get_current_user', {
       credentials: 'include',
       method: 'GET',
       headers: {
@@ -64,7 +65,6 @@ export const getCurrentUser = () => {
       }
     }).then(response => response.json())
     .then(response => {
-      //console.log("response in getCurrentUser: ", response)
       dispatch(setCurrentUser(response))
       //This changes the selected user to match the current (logged in) user
       if (response.logged_in){
@@ -90,7 +90,7 @@ export const clearCurrentUser = () => {
 export const logout = (event) => {
   return dispatch => {
     dispatch(clearCurrentUser())
-    return fetch('http://localhost:3001/logout', {
+    return fetch(baseURL + 'logout', {
       credentials: 'include',
       method: 'POST'
     })

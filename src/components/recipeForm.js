@@ -22,7 +22,9 @@ export class RecipeForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     let newRecipe = {...this.state}
+    console.log('a')
     this.props.addRecipe(newRecipe)
+    console.log('g')
     this.setState({
       name: '',
       url: '',

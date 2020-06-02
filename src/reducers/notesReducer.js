@@ -15,8 +15,8 @@ const notesReducer = (state = {notes: [], loading: false}, action) => {
       }
 
     case 'ADD_NOTE':
-      console.log("action in ADD_NOTE: ", action)
-      console.log([...state.notes, action.note])
+      // console.log("action in ADD_NOTE: ", action)
+      // console.log([...state.notes, action.note])
       return {
         ...state,
         notes: [...state.notes, action.note],
