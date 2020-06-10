@@ -46,7 +46,7 @@ class RecipesContainer extends Component {
             />
           </Switch>
           </div>
-      }
+      
       </div>
     )
   }
