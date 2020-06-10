@@ -86,9 +86,9 @@ class RecipeCards extends Component {
             <CardDeck>{this.renderAllCards()}</CardDeck> 
           </div>
         }
-          <Form.Group>
+          {/* <Form.Group>
             <Form.Check type="checkbox" label="View Liked Recipes" onChange={this.handleCheckboxChange} />
-          </Form.Group>
+          </Form.Group> */}
       </div>
     )
   }
