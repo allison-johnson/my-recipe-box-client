@@ -24,7 +24,7 @@ code {
 
 h1 {
   font-family: 'Roboto Condensed', sans-serif; 
-  font-weight: 700;
+  /* font-weight: 700; */
   text-align: center; 
 }
 
@@ -85,4 +85,8 @@ h1 {
   text-decoration: underline;
   cursor: pointer;
   margin-left: 5px;
+}
+
+Nav.Link {
+  font-family: 'Roboto Condensed', sans-serif;
 }
