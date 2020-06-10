@@ -56,9 +56,10 @@ class RecipeCard extends Component {
           </div>
           </Popup>
           : 
-          <Form.Group>
-            <Form.Check type="checkbox" label="Like this recipe" onChange={this.handleCheckboxChange} />
-          </Form.Group>
+          null
+          // <Form.Group>
+          //   <Form.Check type="checkbox" label="Like this recipe" onChange={this.handleCheckboxChange} />
+          // </Form.Group>
         }
       </Card>
       </div>
